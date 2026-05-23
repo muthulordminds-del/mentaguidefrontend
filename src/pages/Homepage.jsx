@@ -1,5 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import HeroSection from '../components/HeroSection';
 import VisionSection from '../components/VisionSection';
 import VerticalsSection from '../components/VerticalsSection';
@@ -11,6 +12,7 @@ import TeamSection from '../components/TeamSection';
 import ContactSection from '../components/ContactSection';
 import Navbar from '../components/Shared/Navbar';
 import { posterforgoogleform } from '../assets/images';
+import { AppContext } from '../context/AppContext';
 
 const Homepage = () => {
     const containerRef = useRef(null);
@@ -20,13 +22,34 @@ const Homepage = () => {
     const navigate = useNavigate();
     const [showAdvertiserPopup, setShowAdvertiserPopup] = useState(false);
     const [showIframeModal, setShowIframeModal] = useState(false);
+    const { isLoggedIn, userData } = useContext(AppContext);
 
     useEffect(() => {
+        const hasSeen = sessionStorage.getItem('hasSeenAdvertiserPopup');
+        if (!hasSeen) {
+            setShowAdvertiserPopup(true);
+            sessionStorage.setItem('hasSeenAdvertiserPopup', 'true');
+        }
+
         if (location.state?.showAdvertiserPopup) {
             setShowAdvertiserPopup(true);
             navigate('/', { replace: true, state: {} });
         }
     }, [location.state, navigate]);
+
+    const handlePopupAdvertiserClick = () => {
+        if (!isLoggedIn || !userData) {
+            toast.error("Please login first to access this form.");
+            setShowAdvertiserPopup(false);
+            navigate('/login');
+        } else if (!userData.isAccountVerified) {
+            toast.error("Please verify your email to access this form.");
+            setShowAdvertiserPopup(false);
+            navigate('/email-verify');
+        } else {
+            setShowIframeModal(true);
+        }
+    };
 
     const handleCloseAll = () => {
         setShowAdvertiserPopup(false);
@@ -96,11 +119,11 @@ const Homepage = () => {
 
             {/* Initial Advertiser Signup Popup */}
             {showAdvertiserPopup && !showIframeModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-                    <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 animate-in fade-in zoom-in duration-200">
+                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+                    <div className="relative w-full max-w-md max-h-[95vh] overflow-y-auto hide-scrollbar bg-white rounded-2xl shadow-2xl p-5 sm:p-8 animate-in fade-in zoom-in duration-200">
                         <button 
                             onClick={handleCloseAll}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors"
+                            className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-800 transition-colors bg-white/80 rounded-full p-1 z-10"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                         </button>
@@ -114,7 +137,7 @@ const Homepage = () => {
                             </div>
                             
                             <button
-                                onClick={() => setShowIframeModal(true)}
+                                onClick={handlePopupAdvertiserClick}
                                 className="w-full py-3.5 bg-[#a4d64f] text-[#202523] font-black uppercase tracking-widest rounded-xl shadow-[0_10px_25px_rgba(164,214,79,0.3)] transition-all hover:-translate-y-1 hover:bg-[#b5e663]"
                             >
                                 Advertiser Signup
@@ -126,7 +149,7 @@ const Homepage = () => {
 
             {/* Google Form Iframe Modal */}
             {showIframeModal && (
-                <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md p-4 sm:p-8">
+                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-md p-4 sm:p-8">
                     <div className="relative w-full max-w-4xl h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
                         {/* Modal Header */}
                         <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-100 bg-white">

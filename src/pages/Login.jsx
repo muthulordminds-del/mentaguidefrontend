@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FaArrowRight, FaEnvelope, FaLock, FaUser } from 'react-icons/fa'
-import { homepagebg1 } from '../assets/images'
+import { homepagebg1, Mentaguidelogo1 } from '../assets/images'
 
 const Login = () => {
 
@@ -93,7 +93,7 @@ const Login = () => {
                         await getUserData()
                     }
 
-                    navigate('/')
+                    navigate('/', { state: { showAdvertiserPopup: true } })
                 }
                 else {
                     toast.error(data.message)
@@ -111,7 +111,17 @@ const Login = () => {
     }
 
     return (
-        <div className='h-screen overflow-hidden bg-[#f7f8f3] font-gilroy text-[#2d2f31]'>
+        <div className='relative h-screen overflow-hidden bg-[#f7f8f3] font-gilroy text-[#2d2f31]'>
+            {/* Logo */}
+            <div
+                className='absolute top-4 left-4 sm:top-6 sm:left-8 z-50 cursor-pointer hidden lg:block'
+                onClick={() => navigate('/')}
+            >
+                <div className="bg-white rounded-lg p-2 sm:p-3 shadow-md inline-flex items-center justify-center transition-transform hover:scale-105">
+                    <img src={Mentaguidelogo1} alt="Mentaguide Logo" className="w-32 sm:w-40 lg:w-48 h-auto" />
+                </div>
+            </div>
+
             <div className='grid h-full grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]'>
                 <section className='relative hidden overflow-hidden bg-[#202523] lg:block'>
                     <div

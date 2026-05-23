@@ -9,8 +9,9 @@ import { AppContext } from '../../context/AppContext';
 const Navbar = ({ activeIndex, showHeroLogo }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
-  const { userData, backendUrl, setUserData, setIsLoggedIn } = useContext(AppContext);
+  const { userData, backendUrl, setUserData, setIsLoggedIn, isLoggedIn } = useContext(AppContext);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -78,21 +79,24 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
   const col1 = navLinks.slice(0, 4);
   const col2 = navLinks.slice(4);
   const authControlText = isDarkText ? 'text-gray-800 border-gray-500 hover:bg-gray-100' : 'text-white border-white/70 hover:bg-white/10';
-  const authControl = userData ? (
-    <div className="group relative flex h-8 w-8 items-center justify-center rounded-full bg-black text-white">
-      {userData.name?.[0]?.toUpperCase()}
-      <div className="absolute right-0 top-0 z-10 hidden pt-10 text-black group-hover:block">
+  const authControl = isLoggedIn ? (
+    <div 
+      className="group relative flex h-8 w-8 items-center justify-center rounded-full bg-black text-white cursor-pointer"
+      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+    >
+      {userData ? userData.name?.[0]?.toUpperCase() : <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
+      <div className={`absolute right-0 top-0 z-10 pt-10 text-black ${isDropdownOpen ? 'block' : 'hidden group-hover:block'}`}>
         <ul className="m-0 list-none rounded bg-gray-100 p-2 text-sm shadow-lg">
-          {!userData.isAccountVerified && (
+          {userData && !userData.isAccountVerified && (
             <li
-              onClick={sendVerificationEmail}
+              onClick={(e) => { e.stopPropagation(); sendVerificationEmail(); }}
               className="cursor-pointer whitespace-nowrap px-2 py-1 hover:bg-gray-200"
             >
               Verify Email
             </li>
           )}
           <li
-            onClick={logout}
+            onClick={(e) => { e.stopPropagation(); logout(); }}
             className="cursor-pointer whitespace-nowrap px-2 py-1 pr-10 hover:bg-gray-200"
           >
             Logout
@@ -167,13 +171,15 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
           {/* Bottom Elements */}
           <div className="fixed bottom-2 md:bottom-4 lg:bottom-6 left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-12 lg:px-20 pointer-events-auto">
             <div className={`flex flex-wrap justify-center items-center gap-4 md:gap-10 text-xs sm:text-sm md:text-[1.15rem] lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 md:pl-24 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
-              {!userData && (
+              {!isLoggedIn && (
                 <button onClick={openLogin} className="font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer">Login</button>
               )}
-              <button onClick={handleAdvertiserClick} className="font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer">Advertiser Signup</button>
+              <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-6 md:py-2.5 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs md:text-sm lg:text-base cursor-pointer hidden md:block">Advertiser Signup</button>
             </div>
-            <div className={`text-[0.8rem] sm:text-[1rem] md:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isDarkText ? 'text-black' : 'text-white'}`}>
-              m: hello{'{at}'}vcommission.com
+            <div className={`flex flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 text-[0.75rem] sm:text-[1rem] md:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isDarkText ? 'text-black' : 'text-white'}`}>
+              <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
+              <span className="hidden sm:inline opacity-50">|</span>
+              <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer">mentaguide6@gmail.com</a>
             </div>
           </div>
         </div>
@@ -239,13 +245,14 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end w-full mt-auto pt-12 text-black">
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-base md:text-[1rem] lg:text-[1.1rem] font-bold">
               {authControl}
-              <button onClick={handleAdvertiserClick} className="hover:text-[#a4d64f] transition-colors uppercase tracking-widest">Advertiser Signup
-
+              <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-6 md:py-2.5 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs md:text-sm lg:text-base cursor-pointer">
+                Advertiser Signup
               </button>
-              {/* <a href="#" className="hover:text-[#a4d64f] transition-colors uppercase tracking-widest">Affiliate Signup</a> */}
             </div>
-            <div className="text-[1rem] md:text-[1.1rem] font-bold font-gilroy tracking-wide mt-4 md:mt-0">
-              m: hello{'{at}'}vcommission.com
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-[1rem] md:text-[1.1rem] font-bold font-gilroy tracking-wide mt-4 md:mt-0">
+             <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
+             <span className="hidden sm:inline opacity-50">|</span>
+             <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer">mentaguide6@gmail.com</a>
             </div>
           </div>
         </div>
