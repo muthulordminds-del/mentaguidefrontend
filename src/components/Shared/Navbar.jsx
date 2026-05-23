@@ -47,6 +47,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
 
       const { data } = await axios.post(backendUrl + '/api/auth/logout');
       if (data.success) {
+        localStorage.removeItem('token');
         setIsLoggedIn(false);
         setUserData(false);
         setIsOpen(false);

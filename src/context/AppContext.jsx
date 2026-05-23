@@ -8,6 +8,14 @@ export const AppContextProvider = (props) => {
 
     axios.defaults.withCredentials = true
 
+    axios.interceptors.request.use((config) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    }, (error) => Promise.reject(error));
+
     const backendUrl = (import.meta.env.VITE_BASE_URL || 'https://mentaguide.vercel.app/').replace(/\/$/, '')
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [userData, setUserData] = useState(false)
@@ -22,6 +30,7 @@ export const AppContextProvider = (props) => {
 
         } catch (error) {
             if (error.response?.status === 401) {
+                localStorage.removeItem('token')
                 setIsLoggedIn(false)
                 setUserData(false)
                 return
@@ -39,6 +48,7 @@ export const AppContextProvider = (props) => {
 
         } catch (error) {
             if (error.response?.status === 401 || error.response?.status === 400) {
+                localStorage.removeItem('token')
                 setIsLoggedIn(false)
                 setUserData(false)
                 return

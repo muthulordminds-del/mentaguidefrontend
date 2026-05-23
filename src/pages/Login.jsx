@@ -40,6 +40,9 @@ const Login = () => {
                 const { data } = await axios.post(backendUrl + '/api/auth/register', { name, email, password })
 
                 if (data.success) {
+                    if (data.token) {
+                        localStorage.setItem('token', data.token);
+                    }
                     setIsLoggedIn(true)
                     await getUserData()
 
@@ -62,6 +65,9 @@ const Login = () => {
                 const { data } = await axios.post(backendUrl + '/api/auth/login', { email, password })
 
                 if (data.success) {
+                    if (data.token) {
+                        localStorage.setItem('token', data.token);
+                    }
                     setIsLoggedIn(true)
 
                     // Fetch user data directly to check verification status immediately
