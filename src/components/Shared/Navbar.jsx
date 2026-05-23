@@ -166,13 +166,13 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
 
           {/* Bottom Elements */}
           <div className="fixed bottom-2 md:bottom-4 lg:bottom-6 left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-12 lg:px-20 pointer-events-auto">
-            <div className={`flex flex-wrap justify-center items-center gap-6 md:gap-10 text-base md:text-[1.15rem] lg:text-[1.25rem] font-bold hidden lg:flex transition-colors duration-300 pl-4 md:pl-24 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
+            <div className={`flex flex-wrap justify-center items-center gap-4 md:gap-10 text-xs sm:text-sm md:text-[1.15rem] lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 md:pl-24 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
               {!userData && (
                 <button onClick={openLogin} className="font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer">Login</button>
               )}
               <button onClick={handleAdvertiserClick} className="font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer">Advertiser Signup</button>
             </div>
-            <div className={`text-[1rem] md:text-[1.15rem] font-bold font-gilroy tracking-wide ml-auto transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
+            <div className={`text-[0.8rem] sm:text-[1rem] md:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isDarkText ? 'text-black' : 'text-white'}`}>
               m: hello{'{at}'}vcommission.com
             </div>
           </div>
