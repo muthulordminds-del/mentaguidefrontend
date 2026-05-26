@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { FaArrowRight } from 'react-icons/fa';
@@ -11,7 +11,11 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { userData, backendUrl, setUserData, setIsLoggedIn, isLoggedIn } = useContext(AppContext);
+
+  const isAboutPage = location.pathname === '/about';
+  const positionClass = isAboutPage ? 'absolute' : 'fixed';
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -64,13 +68,32 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
     navigate('/login');
   };
 
+  const isHomePage = location.pathname === '/';
+  const isAuthPage = ['/login', '/reset-password', '/email-verify'].includes(location.pathname);
+
+  // If we are on an auth page, don't render the global Navbar
+  if (isAuthPage) return null;
+
+  // On the Homepage, the Homepage component renders its own Navbar to pass activeIndex.
+  // Prevent App.jsx's global Navbar from rendering a duplicate.
+  if (isHomePage && activeIndex === undefined) return null;
+
   // Hero (0) and later sections (4+) use dark text for visibility on white backgrounds.
   // ProcessSection (index 5) has a dark background, so keep text white there.
-  const isDarkText = (activeIndex === 0 || activeIndex >= 4) && activeIndex !== 5;
+  let isDarkText = false;
+  if (isHomePage) {
+    isDarkText = (activeIndex === 0 || activeIndex >= 4) && activeIndex !== 5;
+  } else if (location.pathname === '/about') {
+    isDarkText = false; // About page has a dark full-screen background
+  } else {
+    isDarkText = true;
+  }
+
+  const displayLogo = showHeroLogo !== undefined ? showHeroLogo : true;
 
   const navLinks = [
     { name: 'Home', href: '/', onClick: (e) => { e.preventDefault(); setIsOpen(false); navigate('/'); window.scrollTo(0,0); } },
-    { name: 'About', href: '#' },
+    { name: 'About', href: '/about', onClick: (e) => { e.preventDefault(); setIsOpen(false); navigate('/about'); window.scrollTo(0,0); } },
     { name: 'Services', href: '#' },
     { name: 'Contact', href: '#' },
   ];
@@ -120,7 +143,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
       {!isOpen && (
         <div className="pointer-events-none">
           {/* Header */}
-          <header className="fixed top-0 left-6 md:left-12 flex items-start gap-4 md:gap-8 z-[100] font-gilroy pointer-events-auto pt-3 md:pt-4">
+          <header className={`${positionClass} top-0 left-6 md:left-12 flex items-start gap-4 md:gap-8 z-[100] font-gilroy pointer-events-auto pt-3 md:pt-4`}>
             {/* Two-Line Hamburger Trigger */}
             <button
               onClick={toggleMenu}
@@ -131,8 +154,8 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
               <div className={`w-8 h-1 md:w-6 md:h-1 transition-colors duration-300 ${isDarkText ? 'bg-[#2b2b2b]' : 'bg-white'}`}></div>
             </button>
 
-            {showHeroLogo && (
-              <div className="select-none sticky top-0 -mt-3 md:-mt-5">
+            {displayLogo && (
+              <div className={`select-none sticky top-0 -mt-3 md:-mt-5 ${isAboutPage ? 'bg-white rounded-b-lg px-2 py-1 shadow-sm' : ''}`}>
                 <img
                   src={Mentaguidelogo1}
                   alt="Mentaguide Logo"
@@ -142,23 +165,23 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
             )}
           </header>
 
-          <div className="fixed right-4 top-4 z-[100] pointer-events-auto sm:right-24 sm:top-6">
+          <div className={`${positionClass} right-4 top-4 z-[100] pointer-events-auto sm:right-24 sm:top-6`}>
             {authControl}
           </div>
 
           {/* Left Vertical (Countries) */}
-          <div className="fixed left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto">
+          <div className={`${positionClass} left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
             <div className={`-rotate-90 flex items-center gap-3 text-[0.85rem] lg:text-[0.9rem] tracking-widest font-bold font-gilroy uppercase whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo(0,0); }} className="hover:text-[#a4d64f] transition-colors">Home</a> <span className="font-light opacity-50">|</span>
-              <a href="#" className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
-              <a href="#" className="hover:text-[#a4d64f] transition-colors">Service</a> <span className="font-light opacity-50">|</span>
-              <a href="#" className="hover:text-[#a4d64f] transition-colors">Contact</a> <span className="font-light opacity-50">|</span>
+              <a href="/" onClick={(e) => { e.preventDefault(); navigate('/about'); window.scrollTo(0,0); }} className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
+              <a href="/" onClick={(e) => { e.preventDefault(); navigate('/service'); window.scrollTo(0,0); }} className="hover:text-[#a4d64f] transition-colors">Service</a> <span className="font-light opacity-50">|</span>
+              <a href="/" onClick={(e) => { e.preventDefault(); navigate('/contact'); window.scrollTo(0,0); }} className="hover:text-[#a4d64f] transition-colors">Contact</a> <span className="font-light opacity-50">|</span>
               {/* <a href="#" className="hover:text-[#a4d64f] transition-colors">USA</a> */}
             </div>
           </div>
 
           {/* Right Vertical (Socials) */}
-          <div className="fixed right-8 md:right-10 lg:right-12 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto">
+          <div className={`${positionClass} right-8 md:right-10 lg:right-12 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
             <div className={`rotate-90 flex items-center gap-6 text-[0.85rem] lg:text-[1rem] font-bold font-gilroy tracking-wider whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="https://www.facebook.com/profile.php?id=61589020599973&sk=about" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors lowercase">facebook</a>
               <a href="https://www.instagram.com/mentaguide/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors lowercase">Instagram</a>
@@ -169,7 +192,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
           </div>
 
           {/* Bottom Elements */}
-          <div className="fixed bottom-2 md:bottom-4 lg:bottom-6 left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-12 lg:px-20 pointer-events-auto">
+          <div className={`${positionClass} ${isAboutPage ? 'top-[calc(100vh-3rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-2 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-12 lg:px-20 pointer-events-auto`}>
             <div className={`flex flex-wrap justify-center items-center gap-4 md:gap-10 text-xs sm:text-sm md:text-[1.15rem] lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 md:pl-24 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
               {!isLoggedIn && (
                 <button onClick={openLogin} className="font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer">Login</button>
@@ -225,7 +248,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
           <div className="fixed left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0">
             <div className="-rotate-90 flex items-center gap-3 text-[0.85rem] lg:text-[0.9rem] tracking-widest font-bold font-gilroy uppercase whitespace-nowrap text-black">
               <a href="/" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/'); window.scrollTo(0,0); }} className="hover:text-[#a4d64f] transition-colors">Home</a> <span className="font-light opacity-50">|</span>
-              <a href="#" className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
+              <a href="/about" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/about'); window.scrollTo(0,0); }} className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
               <a href="#" className="hover:text-[#a4d64f] transition-colors">Services</a> <span className="font-light opacity-50">|</span>
               <a href="#" className="hover:text-[#a4d64f] transition-colors">Contact</a> <span className="font-light opacity-50">|</span>
             </div>

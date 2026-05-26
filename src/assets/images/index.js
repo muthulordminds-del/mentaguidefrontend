@@ -29,4 +29,19 @@ import WRAPlogo from "./logos/WRAPlogo.jpeg";
 // posterimg
 import posterforgoogleform from "./posterforgoogleform.jpeg";
 
-export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform };
+// Aboutpage images
+import aboutherosectionbg from "./aboutpage/aboutherosectionbg.jpg";
+import aboutherosection1 from "./aboutpage/herosection1.png"
+import howweareimg1 from "./aboutpage/howweareimg1.webp";
+import howweareimg2 from "./aboutpage/howweareimg2.jpeg";
+import howweareimg3 from "./aboutpage/howweareimg3.avif";
+import howweareimg4 from "./aboutpage/howweareimg4.png";
+import howweareimg5 from "./aboutpage/howweareimg5.png";
+import howweareimg6 from "./aboutpage/howweareimg6.jpg";
+import ourvaluesbg from "./aboutpage/ourvaluesbg.jpg";
+import ourmissionbg from "./aboutpage/ourmissionbg.svg";
+import ourmission from "./aboutpage/ourmission.jpg";
+
+
+
+export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform, aboutherosectionbg, aboutherosection1, howweareimg1, howweareimg2, howweareimg3, howweareimg4, howweareimg5, howweareimg6, ourvaluesbg, ourmissionbg, ourmission};
