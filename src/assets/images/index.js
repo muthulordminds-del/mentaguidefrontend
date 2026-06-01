@@ -42,6 +42,20 @@ import ourvaluesbg from "./aboutpage/ourvaluesbg.jpg";
 import ourmissionbg from "./aboutpage/ourmissionbg.svg";
 import ourmission from "./aboutpage/ourmission.jpg";
 
+// Service page
+import serviceherosectionbg from "./servicepage/Serviceherosectionbg.png";
+import servicesubimg1 from "./servicepage/Serviceherosection1.png";
+import serviceimg1 from "./servicepage/serviceimg1.jpg"
+import serviceimg2 from "./servicepage/serviceimg2.jpg"
+import agriculturalimg from "./servicepage/agriculturalimg.jpg"
+import agriculturalbg from "./servicepage/agriculturalbg.jpg"
+import globalimg1 from "./servicepage/globalimg1.png";
+import globalimg2 from "./servicepage/globalimg2.png";
+import supplychainimg1 from "./servicepage/supplychainimg1.jpg"
+import supplychainimg2 from "./servicepage/supplychainimg2.jpg"
+import IPOMainBoardbg from "./servicepage/IPOMainBoardbg.png"
 
 
-export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform, aboutherosectionbg, aboutherosection1, howweareimg1, howweareimg2, howweareimg3, howweareimg4, howweareimg5, howweareimg6, ourvaluesbg, ourmissionbg, ourmission};
+
+
+export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform, aboutherosectionbg, aboutherosection1, howweareimg1, howweareimg2, howweareimg3, howweareimg4, howweareimg5, howweareimg6, ourvaluesbg, ourmissionbg, ourmission, serviceherosectionbg, servicesubimg1, serviceimg1, serviceimg2, agriculturalimg,agriculturalbg,globalimg1,globalimg2,supplychainimg1,supplychainimg2,IPOMainBoardbg};
