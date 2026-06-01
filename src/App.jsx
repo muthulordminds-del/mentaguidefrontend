@@ -14,7 +14,7 @@ import ContactSection from './components/ContactSection'
 
 const App = () => {
   const location = useLocation()
-  const hideFooterRoutes = ['/login', '/reset-password', '/email-verify']
+  const hideFooterRoutes = ['/', '/login', '/reset-password', '/email-verify']
   const shouldShowFooter = !hideFooterRoutes.includes(location.pathname)
 
   return (

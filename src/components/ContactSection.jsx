@@ -102,13 +102,11 @@ const ContactSection = () => {
           <div className="flex flex-col text-white">
             <h3 className="font-gilroy font-normal text-lg md:text-xl lg:text-2xl mb-4 lg:mb-6">Quick Links:</h3>
             <ul className="space-y-2.5 sm:space-y-3 md:space-y-4 font-normal text-sm lg:text-[0.95rem]">
-              <li><a href="#" className="hover:text-[#2b2b2b] transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-[#2b2b2b] transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-[#2b2b2b] transition-colors">Gallery</a></li>
-              <li><a href="#" className="hover:text-[#2b2b2b] transition-colors">Offers</a></li>
-              <li><a href="#" className="hover:text-[#2b2b2b] transition-colors">Affiliate Agreement</a></li>
-              <li><a href="#" className="hover:text-[#2b2b2b] transition-colors">Presentations</a></li>
-              <li><a href="#" className="hover:text-[#2b2b2b] transition-colors">Privacy Policy</a></li>
+              <li><a href="/" className="hover:text-[#2b2b2b] transition-colors">Home</a></li>
+              <li><a href="/about" className="hover:text-[#2b2b2b] transition-colors">About Us</a></li>
+              <li><a href="/services" className="hover:text-[#2b2b2b] transition-colors">Service</a></li>
+              <li><a href="/contact" className="hover:text-[#2b2b2b] transition-colors">Contact Us</a></li>
+              <li><a href="/privacy-policy" className="hover:text-[#2b2b2b] transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 
