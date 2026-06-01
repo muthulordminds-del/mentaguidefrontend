@@ -20,3 +20,12 @@
   --font-gilroy: 'Gilroy', sans-serif;
   --font-gilroy-light: 'Gilroy-Light', sans-serif;
 }
+@keyframes ring {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50% { transform: rotate(-5deg); }
+  20%, 40% { transform: rotate(5deg); }
+}
+
+.animate-ring {
+  animation: ring 1.5s ease-in-out infinite;
+}

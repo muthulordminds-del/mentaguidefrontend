@@ -2,6 +2,7 @@ import React from 'react'
 import Homepage from './pages/Homepage'
 import Aboutpage from './pages/Aboutpage'
 import Servicepage from './pages/Servicepage'
+import Contactpage from './pages/Contactpage'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Login from './pages/Login'
 import Resetpassword from './pages/Resetpassword'
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/services" element={<Servicepage />} />
+        <Route path="/contact" element={<Contactpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<Resetpassword />} />
         <Route path="/email-verify" element={<Emailverify />} />

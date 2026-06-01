@@ -14,7 +14,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
   const location = useLocation();
   const { userData, backendUrl, setUserData, setIsLoggedIn, isLoggedIn } = useContext(AppContext);
 
-  const isAboutPage = location.pathname === '/about' || location.pathname === '/services';
+  const isAboutPage = location.pathname === '/about' || location.pathname === '/services' || location.pathname === '/contact';
   const positionClass = isAboutPage ? 'absolute' : 'fixed';
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -83,8 +83,8 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
   let isDarkText = false;
   if (isHomePage) {
     isDarkText = (activeIndex === 0 || activeIndex >= 4) && activeIndex !== 5;
-  } else if (location.pathname === '/about' || location.pathname === '/services') {
-    isDarkText = false; // About and Service pages have dark backgrounds
+  } else if (isAboutPage) {
+    isDarkText = false; // Pages like About, Services, Contact have dark backgrounds
   } else {
     isDarkText = true;
   }
@@ -196,14 +196,14 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
           </div>
 
           {/* Bottom Elements */}
-          <div className={`${positionClass} ${isAboutPage ? 'bottom-2 sm:bottom-4 md:bottom-8 lg:bottom-12' : 'bottom-2 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
-            <div className={`flex flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.25rem] font-bold transition-colors duration-300 ${isAboutPage ? 'md:pl-32 xl:pl-48' : 'pl-0 lg:pl-32 xl:pl-48'} ${isDarkText ? 'text-black' : 'text-white'}`}>
+          <div className={`${positionClass} ${location.pathname === '/about' ? 'top-[calc(100vh-0.0rem)] sm:top-[calc(100vh-1rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : isAboutPage ? 'top-[calc(100vh-8rem)] sm:top-[calc(100vh-6rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-8 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
+            <div className={`flex flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
               {!isLoggedIn && (
-                <button onClick={openLogin} className={`font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer ${isAboutPage ? 'mb-2 md:mb-0' : ''}`}>Login</button>
+                <button onClick={openLogin} className="font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer">Login</button>
               )}
               <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Advertiser Signup</button>
             </div>
-            <div className={`flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-3 md:gap-2 lg:gap-3 text-[0.8rem] sm:text-[1rem] md:text-base lg:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 ${isAboutPage ? '' : 'self-end md:self-auto'} ${isDarkText ? 'text-black' : 'text-white'}`}>
+            <div className={`flex flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 md:gap-2 lg:gap-3 text-[0.75rem] sm:text-[1rem] md:text-base lg:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
               <span className="hidden sm:inline opacity-50">|</span>
               <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer whitespace-nowrap">mentaguide6@gmail.com</a>

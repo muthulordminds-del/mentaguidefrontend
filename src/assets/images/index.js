@@ -55,7 +55,11 @@ import supplychainimg1 from "./servicepage/supplychainimg1.jpg"
 import supplychainimg2 from "./servicepage/supplychainimg2.jpg"
 import IPOMainBoardbg from "./servicepage/IPOMainBoardbg.png"
 
+// Contact page
+import contactherobg from "./contactpage/herobg.png"
+import telephone1 from "./contactpage/telephone1.png"
+import telephone2 from "./contactpage/telephone2.png"
 
 
 
-export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform, aboutherosectionbg, aboutherosection1, howweareimg1, howweareimg2, howweareimg3, howweareimg4, howweareimg5, howweareimg6, ourvaluesbg, ourmissionbg, ourmission, serviceherosectionbg, servicesubimg1, serviceimg1, serviceimg2, agriculturalimg,agriculturalbg,globalimg1,globalimg2,supplychainimg1,supplychainimg2,IPOMainBoardbg};
+export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform, aboutherosectionbg, aboutherosection1, howweareimg1, howweareimg2, howweareimg3, howweareimg4, howweareimg5, howweareimg6, ourvaluesbg, ourmissionbg, ourmission, serviceherosectionbg, servicesubimg1, serviceimg1, serviceimg2, agriculturalimg,agriculturalbg,globalimg1,globalimg2,supplychainimg1,supplychainimg2,IPOMainBoardbg, contactherobg, telephone1, telephone2};

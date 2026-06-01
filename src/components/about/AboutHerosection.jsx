@@ -19,7 +19,7 @@ const AboutHeroSection = () => {
   };
 
   return (
-    <section className="min-h-[115vh] md:min-h-screen w-full relative bg-white font-sans overflow-hidden">
+    <section className="min-h-[125vh] md:min-h-screen w-full relative bg-white font-sans overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-no-repeat bg-cover bg-center"
