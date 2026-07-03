@@ -1,5 +1,6 @@
 import React from 'react';
-import { supplychainimg1 , supplychainimg2 } from '../../assets/images';
+import { compliance1, industrycertifications1 } from '../../assets/images';
+import { Link } from 'react-router-dom';
 
 const SupplyChainSection = () => {
   return (
@@ -10,15 +11,14 @@ const SupplyChainSection = () => {
           {/* Card 1: Supply Chain & Logistics */}
           <div className="bg-[#f0f2f4] rounded-3xl overflow-hidden flex flex-col border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
             <div className="h-56 sm:h-64 lg:h-72 w-full">
-              {/* Note: Using serviceimg1 as placeholder, replace with correct image */}
-              <img src={supplychainimg1} alt="Supply Chain & Logistics" className="w-full h-full object-cover" />
+              <img src={compliance1} alt="Compliance & Sustainability" className="w-full h-full object-cover" />
             </div>
             <div className="p-8 sm:p-10 flex flex-col flex-grow">
               <h3 className="text-2xl sm:text-[1.75rem] font-bold text-[#142033] font-gilroy mb-4">
-                Supply Chain & Logistics
+                Compliance & Sustainability
               </h3>
               <p className="text-[#5b6a7a] mb-6 leading-[1.8] text-[0.95rem] font-medium max-w-sm">
-                End-to-end optimization and expert handling of logistics disruptions.
+                Helping organizations meet statutory, industry, and global compliance standards.
               </p>
               
               <div className="flex flex-col gap-4">
@@ -34,8 +34,8 @@ const SupplyChainSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Vendor Coordination</h4>
-                    <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">Managing procurement and multi-tier vendor relations.</p>
+                    <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Global Certifications</h4>
+                    <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">ISO Certification, Trademark Registration, and ESG Consulting.</p>
                   </div>
                 </div>
 
@@ -49,8 +49,8 @@ const SupplyChainSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Disruption Management</h4>
-                    <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">Rapid resolution for delays and supply chain bottlenecks.</p>
+                    <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Regulatory Compliance</h4>
+                    <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">End-to-end guidance to maintain statutory regulations.</p>
                   </div>
                 </div>
               </div>
@@ -60,23 +60,22 @@ const SupplyChainSection = () => {
           {/* Card 2: Strategic Consulting */}
           <div className="bg-[#271247] rounded-3xl overflow-hidden flex flex-col shadow-sm hover:shadow-lg transition-all duration-300">
             <div className="h-56 sm:h-64 lg:h-72 w-full">
-              {/* Note: Using serviceimg2 as placeholder, replace with correct image */}
-              <img src={supplychainimg2} alt="Strategic Consulting" className="w-full h-full object-cover" />
+              <img src={industrycertifications1} alt="Industry Certifications" className="w-full h-full object-cover" />
             </div>
             <div className="p-8 sm:p-10 flex flex-col flex-grow">
               <h3 className="text-2xl sm:text-[1.75rem] font-bold text-white font-gilroy mb-4">
-                Strategic Consulting
+                Industry Certifications
               </h3>
               <p className="text-[#788898] mb-6 leading-[1.8] text-[0.95rem] font-medium max-w-sm">
-                Visionary evaluation and strategic planning for sustainable corporate growth.
+                We help businesses obtain industry certifications required for compliance and market expansion.
               </p>
               
               <div className="flex flex-col flex-grow">
                 {[
-                  'Business problem analysis', 
-                  'Expert consultation', 
-                  'End-to-end solution guidance', 
-                  'Strategic planning'
+                  'ISO 9001 Quality Management', 
+                  'HACCP & Food Safety', 
+                  'GMP Standards', 
+                  'Global Export Certifications'
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center justify-between py-4 border-b border-[#23293e] last:border-0">
                     <span className="text-[#cfd6df] text-[0.95rem] font-medium">{item}</span>
@@ -87,9 +86,9 @@ const SupplyChainSection = () => {
                 ))}
               </div>
               
-              <button className="w-full mt-8 py-4 bg-[#bcf56a] hover:bg-[#a6e053] text-[#121625] font-bold rounded-xl transition-colors text-[0.95rem]">
-                Request Consultation
-              </button>
+              <Link to="/service/industry-certifications" className="w-full mt-8 py-4 bg-[#bcf56a] hover:bg-[#a6e053] text-[#121625] font-bold rounded-xl transition-colors text-[0.95rem] text-center block">
+                Explore Certifications
+              </Link>
             </div>
           </div>
 

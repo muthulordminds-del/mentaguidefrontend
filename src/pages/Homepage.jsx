@@ -11,6 +11,7 @@ import ProcessSection from '../components/ProcessSection';
 import TeamSection from '../components/TeamSection';
 import ContactSection from '../components/ContactSection';
 import Navbar from '../components/Shared/Navbar';
+import AdvertiserForm from '../components/AdvertiserForm';
 import { posterforgoogleform } from '../assets/images';
 import { AppContext } from '../context/AppContext';
 
@@ -167,13 +168,9 @@ const Homepage = () => {
                             </button>
                         </div>
                         
-                        {/* Iframe Container */}
-                        <div className="flex-1 w-full bg-[#f8f9fa] relative">
-                            <iframe 
-                                src="https://docs.google.com/forms/d/e/1FAIpQLScXCErL-eTaGJPKUMwKQE61HZM6GOa4lRsY4uvrB-o5Hu-75w/viewform?embedded=true" 
-                                className="absolute inset-0 w-full h-full border-none"
-                                title="Advertiser Signup Form"
-                            >Loading…</iframe>
+                        {/* Form Container */}
+                        <div className="flex-1 w-full bg-gray-50 p-6 md:p-8 overflow-y-auto">
+                            <AdvertiserForm onSuccess={handleCloseAll} />
                         </div>
                     </div>
                 </div>

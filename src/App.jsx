@@ -11,6 +11,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Shared/Navbar'
 import ContactSection from './components/ContactSection'
+import Eventpage from './pages/Eventpage'
+import ServiceDetailsPage from './pages/ServiceDetailspage'
 
 const App = () => {
   const location = useLocation()
@@ -25,7 +27,9 @@ const App = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/services" element={<Servicepage />} />
+        <Route path="/service/:slug" element={<ServiceDetailsPage />} />
         <Route path="/contact" element={<Contactpage />} />
+        <Route path="/event" element={<Eventpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<Resetpassword />} />
         <Route path="/email-verify" element={<Emailverify />} />

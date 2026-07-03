@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { FaArrowRight } from 'react-icons/fa';
 import { Mentaguidelogo1 } from '../../assets/images';
 import { AppContext } from '../../context/AppContext';
+import AdvertiserForm from '../AdvertiserForm';
 
 const Navbar = ({ activeIndex, showHeroLogo }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
   const location = useLocation();
   const { userData, backendUrl, setUserData, setIsLoggedIn, isLoggedIn } = useContext(AppContext);
 
-  const isAboutPage = location.pathname === '/about' || location.pathname === '/services' || location.pathname === '/contact';
+  const isAboutPage = location.pathname === '/about' || location.pathname === '/services' || location.pathname === '/contact' || location.pathname === '/event' || location.pathname.startsWith('/service/');
   const positionClass = isAboutPage ? 'absolute' : 'fixed';
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -96,6 +97,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
     { name: 'About', href: '/about', onClick: (e) => { e.preventDefault(); setIsOpen(false); navigate('/about'); window.scrollTo(0, 0); } },
     { name: 'Services', href: '/services', onClick: (e) => { e.preventDefault(); setIsOpen(false); navigate('/services'); window.scrollTo(0, 0); } },
     { name: 'Contact', href: '#', onClick: (e) => { e.preventDefault(); setIsOpen(false); navigate('/contact'); window.scrollTo(0, 0); } },
+    { name: 'Event', href: '/event', onClick: (e) => { e.preventDefault(); setIsOpen(false); navigate('/event'); window.scrollTo(0, 0); } },
   ];
 
   // Split links into two columns for the layout shown in the screenshot
@@ -107,7 +109,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
       className="group relative flex h-8 w-8 items-center justify-center rounded-full bg-black text-white cursor-pointer"
       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
     >
-      {userData ? userData.name?.[0]?.toUpperCase() : <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
+      {userData ? (userData.name ? userData.name[0].toUpperCase() : 'U') : <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
       <div className={`absolute right-0 top-0 z-10 pt-10 text-black ${isDropdownOpen ? 'block' : 'hidden group-hover:block'}`}>
         <ul className="m-0 list-none rounded bg-gray-100 p-2 text-sm shadow-lg">
           {userData && !userData.isAccountVerified && (
@@ -180,6 +182,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/about'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/services'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Service</a> <span className="font-light opacity-50">|</span>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/contact'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Contact</a> <span className="font-light opacity-50">|</span>
+              <a href="/" onClick={(e) => { e.preventDefault(); navigate('/event'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Event</a> <span className="font-light opacity-50">|</span>
               {/* <a href="#" className="hover:text-[#a4d64f] transition-colors">USA</a> */}
             </div>
           </div>
@@ -203,7 +206,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
               )}
               <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Advertiser Signup</button>
             </div>
-            <div className={`flex flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 md:gap-2 lg:gap-3 text-[0.75rem] sm:text-[1rem] md:text-base lg:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isDarkText ? 'text-black' : 'text-white'}`}>
+            <div className={`${location.pathname === '/event' ? 'hidden sm:flex' : 'flex'} flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 md:gap-2 lg:gap-3 text-[0.75rem] sm:text-[1rem] md:text-base lg:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
               <span className="hidden sm:inline opacity-50">|</span>
               <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer whitespace-nowrap">mentaguide6@gmail.com</a>
@@ -298,12 +301,8 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
               </button>
             </div>
-            <div className="flex-1 w-full bg-gray-50 relative">
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLScXCErL-eTaGJPKUMwKQE61HZM6GOa4lRsY4uvrB-o5Hu-75w/viewform?embedded=true"
-                className="w-full h-full border-none"
-                title="Advertiser Signup Form"
-              >Loading…</iframe>
+            <div className="flex-1 w-full bg-gray-50 p-6 md:p-8 overflow-y-auto">
+              <AdvertiserForm onSuccess={() => setIsAdvertiserModalOpen(false)} />
             </div>
           </div>
         </div>

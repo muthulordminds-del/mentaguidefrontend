@@ -1,5 +1,6 @@
 import React from 'react';
-import { serviceimg1, serviceimg2 } from '../../assets/images';
+import { Link } from 'react-router-dom';
+import { businessgrowth1, finance1 } from '../../assets/images';
 
 const Managementsection = () => {
   return (
@@ -10,7 +11,7 @@ const Managementsection = () => {
           {/* Card 1: Crisis & Risk Management */}
           <div className="lg:col-span-7 bg-white rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100">
             <div className="h-56 sm:h-64 lg:h-72 w-full overflow-hidden">
-              <img src={serviceimg2} alt="Crisis & Risk Management" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+              <img src={businessgrowth1} alt="Business Growth Consultancy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
             </div>
             <div className="p-6 sm:p-8 lg:p-10 flex flex-col flex-grow relative">
               <div className="flex items-center gap-5 mb-6">
@@ -20,20 +21,20 @@ const Managementsection = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-[1.8rem] font-bold text-[#0c223a] font-gilroy leading-tight">
-                  Crisis & Risk Management
+                  Business Growth Consultancy
                 </h3>
               </div>
               
               <p className="text-[#5b6a7a] mb-5 leading-[1.8] text-[0.95rem] sm:text-base font-medium">
-                Response, recovery, and risk reduction strategies to safeguard business continuity during turbulent times.
+                Our consultancy services focus on business transformation, operational efficiency, corporate restructuring, and risk management solutions.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-6">
                 {[
-                  "Business crisis resolution",
-                  "Emergency response planning",
-                  "Operational issue handling",
-                  "Continuity guidance"
+                  "Business Strategy",
+                  "Growth Planning",
+                  "Risk Management",
+                  "Mergers & Acquisitions"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <svg className="w-[1.15rem] h-[1.15rem] text-[#f7811d] shrink-0 mt-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,10 +47,10 @@ const Managementsection = () => {
             </div>
           </div>
 
-          {/* Card 2: Operational Efficiency */}
+          {/* Card 2: Finance & Taxation */}
           <div className="lg:col-span-5 bg-white rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 mt-6 lg:mt-0">
             <div className="h-56 sm:h-64 lg:h-72 w-full overflow-hidden">
-              <img src={serviceimg1} alt="Operational Efficiency" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+              <img src={finance1} alt="Finance & Taxation" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
             </div>
             <div className="p-6 sm:p-8 lg:p-10 flex flex-col flex-grow">
               <div className="flex items-center gap-5 mb-6">
@@ -60,26 +61,26 @@ const Managementsection = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-[1.8rem] font-bold text-[#0c223a] font-gilroy leading-tight">
-                  Operational Efficiency
+                  Finance & Taxation
                 </h3>
               </div>
               
               <p className="text-[#5b6a7a] mb-6 leading-[1.8] text-[0.95rem] sm:text-base font-medium">
-                Streamlining workflows and maximizing productivity across all departments through rigorous process analysis.
+                We handle accounting, bookkeeping, GST registration, MCA filings, and corporate compliance management.
               </p>
               
               <div className="flex flex-col gap-3">
                 {[
-                  "Process optimization",
-                  "Workflow structuring",
-                  "Performance improvement"
+                  "Accounting",
+                  "GST Filing",
+                  "Company Incorporation"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center justify-between px-6 py-4 sm:py-5 border border-gray-100 shadow-[0_4px_16px_rgba(0,0,0,0.03)] rounded-2xl hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer bg-white group">
+                  <Link to="/service/finance-taxation-corporate-affairs" key={index} className="flex items-center justify-between px-6 py-4 sm:py-5 border border-gray-100 shadow-[0_4px_16px_rgba(0,0,0,0.03)] rounded-2xl hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer bg-white group">
                     <span className="text-[#324050] text-[0.95rem] font-semibold">{item}</span>
                     <svg className="w-[1.1rem] h-[1.1rem] text-gray-400 group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                     </svg>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

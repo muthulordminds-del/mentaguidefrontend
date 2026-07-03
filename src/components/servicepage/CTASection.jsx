@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (
@@ -16,12 +17,12 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto">
-            <button className="w-full sm:w-auto px-8 py-4 bg-[#c0f35a] hover:bg-[#a8df45] text-[#142033] font-bold text-[0.95rem] rounded-xl transition-colors shadow-lg">
+            <a href="tel:+917708505529" className="w-full sm:w-auto px-8 py-4 bg-[#c0f35a] hover:bg-[#a8df45] text-[#142033] font-bold text-[0.95rem] rounded-xl transition-colors shadow-lg text-center block">
               Book a Consultation
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-white/5 border-2 border-[#e2e8f0] text-white font-bold text-[0.95rem] rounded-xl transition-colors">
+            </a>
+            <Link to="/contact" className="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-white/5 border-2 border-[#e2e8f0] text-white font-bold text-[0.95rem] rounded-xl transition-colors text-center block">
               Contact Our Experts
-            </button>
+            </Link>
           </div>
 
         </div>

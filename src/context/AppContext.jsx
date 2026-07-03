@@ -26,10 +26,14 @@ export const AppContextProvider = (props) => {
             if (data.success) {
                 setIsLoggedIn(true)
                 getUserData()
+            } else {
+                localStorage.removeItem('token')
+                setIsLoggedIn(false)
+                setUserData(false)
             }
 
         } catch (error) {
-            if (error.response?.status === 401) {
+            if (error.response?.status === 401 || error.response?.status === 400) {
                 localStorage.removeItem('token')
                 setIsLoggedIn(false)
                 setUserData(false)

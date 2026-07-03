@@ -28,24 +28,20 @@ const IPOMainBoardSection = () => {
                 </svg>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-white font-gilroy leading-tight">
-                IPO Main Board Assistance
+                IPO Advisory (SME & Mainboard)
               </h2>
             </div>
             
             <p className="text-[#aebac5] mb-12 leading-[1.8] text-[1.05rem] sm:text-[1.1rem] font-medium max-w-2xl">
-              Preparing your enterprise for the ultimate milestone. We provide a rigorous framework for governance, readiness, and successful market entry.
+              Complete IPO advisory services from private company to listed company. We guide businesses through IPO planning, documentation, compliance, and execution support.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-7 gap-x-8">
               {[
-                "IPO readiness assessment",
-                "Governance framework support",
-                "Business transformation",
-                "Internal control strengthening",
-                "Compliance & documentation",
-                "Investor readiness support",
-                "Stakeholder coordination",
-                "Reporting alignment"
+                "IPO Readiness",
+                "SEBI Compliance",
+                "Due Diligence",
+                "Listing Support"
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
                   <div className="shrink-0 mt-[2px]">

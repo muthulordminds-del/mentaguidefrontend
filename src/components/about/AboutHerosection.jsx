@@ -3,6 +3,7 @@ import { aboutherosectionbg, aboutherosection1 } from '../../assets/images';
 import { motion } from 'framer-motion';
 import { AppContext } from '../../context/AppContext';
 import { toast } from 'react-toastify';
+import AdvertiserForm from '../AdvertiserForm';
 
 const AboutHeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -84,12 +85,8 @@ const AboutHeroSection = () => {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
               </button>
             </div>
-            <div className="flex-1 w-full bg-gray-50 relative">
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLScXCErL-eTaGJPKUMwKQE61HZM6GOa4lRsY4uvrB-o5Hu-75w/viewform?embedded=true"
-                className="w-full h-full border-none"
-                title="Advertiser Signup Form"
-              >Loading…</iframe>
+            <div className="flex-1 w-full bg-gray-50 p-6 md:p-8 overflow-y-auto">
+              <AdvertiserForm onSuccess={() => setIsModalOpen(false)} />
             </div>
           </div>
         </div>

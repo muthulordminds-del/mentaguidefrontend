@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { serviceherosectionbg, servicesubimg1 } from '../../assets/images';
 import { AppContext } from '../../context/AppContext';
 import { toast } from 'react-toastify';
+import AdvertiserForm from '../AdvertiserForm';
 
 const ServiceHerosection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,6 +15,13 @@ const ServiceHerosection = () => {
             toast.error('To access this form, you must verify your email.');
         } else {
             setIsModalOpen(true);
+        }
+    };
+
+    const scrollToServices = () => {
+        const section = document.getElementById('service-grid');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
@@ -43,23 +51,23 @@ const ServiceHerosection = () => {
                         <div className="flex mb-5 items-stretch">
                             <div className="w-1 bg-gradient-to-b from-[#ff6b35] via-[#a044ff] to-[#3b82f6] mr-4 shrink-0 rounded-full"></div>
                             <p className="text-[#1e293b] font-gilroy-light italic text-sm sm:text-base font-semibold leading-relaxed">
-                                "At MentaGuide, we believe every business challenge can be solved with the right expertise, structure, and direction."
+                                "Empowering businesses with finance, compliance, advisory, and growth solutions."
                             </p>
                         </div>
 
                         {/* Description */}
                         <p className="text-[#475569] font-gilroy-light mb-6 text-sm sm:text-base max-w-xl leading-relaxed">
-                            Comprehensive Business Solutions for Every Stage of Growth. We provide expert-driven services designed to solve real business problems and create measurable impact.
+                            MentaGuide empowers businesses with strategic insights, operational excellence, and growth-focused solutions to achieve sustainable success and long-term value creation.
                         </p>
 
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <button className="bg-[#0f172a] hover:bg-[#1e293b] text-white px-6 py-2.5 rounded-lg font-gilroy text-sm transition-colors duration-300 w-full sm:w-auto shadow-lg hover:shadow-xl">
+                            <button onClick={scrollToServices} className="bg-[#0f172a] hover:bg-[#1e293b] text-white px-6 py-2.5 rounded-lg font-gilroy text-sm transition-colors duration-300 w-full sm:w-auto shadow-lg hover:shadow-xl cursor-pointer">
                                 Explore Services
                             </button>
-                            <button className="bg-white/50 border border-gray-300 hover:border-gray-400 hover:bg-white text-[#0f172a] px-6 py-2.5 rounded-lg font-gilroy text-sm transition-colors duration-300 w-full sm:w-auto">
+                            {/* <button className="bg-white/50 border border-gray-300 hover:border-gray-400 hover:bg-white text-[#0f172a] px-6 py-2.5 rounded-lg font-gilroy text-sm transition-colors duration-300 w-full sm:w-auto">
                                 Our Process
-                            </button>
+                            </button> */}
                         </div>
                     </div>
 
@@ -98,12 +106,8 @@ const ServiceHerosection = () => {
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                             </button>
                         </div>
-                        <div className="flex-1 w-full bg-gray-50 relative">
-                            <iframe
-                                src="https://docs.google.com/forms/d/e/1FAIpQLScXCErL-eTaGJPKUMwKQE61HZM6GOa4lRsY4uvrB-o5Hu-75w/viewform?embedded=true"
-                                className="w-full h-full border-none"
-                                title="Advertiser Signup Form"
-                            >Loading...</iframe>
+                        <div className="flex-1 w-full bg-gray-50 p-6 md:p-8 overflow-y-auto">
+                            <AdvertiserForm onSuccess={() => setIsModalOpen(false)} />
                         </div>
                     </div>
                 </div>
