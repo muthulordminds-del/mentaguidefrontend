@@ -1,11 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 
 const AdvertiserForm = ({ onSuccess }) => {
   const { backendUrl } = useContext(AppContext);
+  const formRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
   const [industrySearch, setIndustrySearch] = useState('');
   const [isIndustryDropdownOpen, setIsIndustryDropdownOpen] = useState(false);
   const [customIndustry, setCustomIndustry] = useState('');
@@ -145,6 +147,43 @@ const AdvertiserForm = ({ onSuccess }) => {
     }
   };
 
+  const validateStep = () => {
+    switch(currentStep) {
+      case 1:
+        return formData.fullName && formData.jobTitle && formData.email && formData.phone && formData.whatsapp && formData.companyName && formData.industry && formData.location && (formData.industry !== 'Others' || customIndustry);
+      case 2:
+        return formData.primaryReason && formData.specificChallenge;
+      case 3:
+        return formData.businessDescription && formData.businessStage;
+      case 4:
+        return formData.topicsOfInterest.length > 0 && formData.primaryContact;
+      case 5:
+        return formData.certificationChallenge && formData.expectedOutcome;
+      case 6:
+        return formData.willAttend && formData.numberOfAttendees;
+      default:
+        return true;
+    }
+  };
+
+  const nextStep = () => {
+    if (validateStep()) {
+      setCurrentStep(prev => prev + 1);
+      if (formRef.current) {
+        formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      toast.error('Please fill all required fields before proceeding');
+    }
+  };
+
+  const prevStep = () => {
+    setCurrentStep(prev => prev - 1);
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const SectionHeader = ({ title }) => (
     <div className="border-b-2 border-[#a4d64f]/30 pb-2 mb-4 mt-8 first:mt-0">
       <h4 className="text-lg font-bold text-[#2d2f31] uppercase tracking-wider">{title}</h4>
@@ -152,9 +191,10 @@ const AdvertiserForm = ({ onSuccess }) => {
   );
 
   return (
-    <form className="max-w-3xl mx-auto flex flex-col gap-6 font-inter" onSubmit={handleSubmit}>
+    <form ref={formRef} className="max-w-3xl mx-auto flex flex-col gap-6 font-inter" onSubmit={handleSubmit}>
       
       {/* Section 1: Advertiser Signup */}
+      {currentStep === 1 && (
       <div>
         <SectionHeader title="Section 1: Advertiser Signup" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -252,8 +292,10 @@ const AdvertiserForm = ({ onSuccess }) => {
           </div>
         </div>
       </div>
+      )}
 
       {/* Section 2: Program Objectives */}
+      {currentStep === 2 && (
       <div>
         <SectionHeader title="Section 2: Program Objectives" />
         <div className="flex flex-col gap-5">
@@ -271,8 +313,10 @@ const AdvertiserForm = ({ onSuccess }) => {
           </div>
         </div>
       </div>
+      )}
 
       {/* Section 3: Background & Business Context */}
+      {currentStep === 3 && (
       <div>
         <SectionHeader title="Section 3: Background & Business Context" />
         <div className="flex flex-col gap-5">
@@ -297,8 +341,10 @@ const AdvertiserForm = ({ onSuccess }) => {
           </div>
         </div>
       </div>
+      )}
 
       {/* Section 4: Event Logistics & Preferences */}
+      {currentStep === 4 && (
       <div>
         <SectionHeader title="Section 4: Event Logistics & Preferences" />
         <div className="flex flex-col gap-5">
@@ -323,8 +369,10 @@ const AdvertiserForm = ({ onSuccess }) => {
           </div>
         </div>
       </div>
+      )}
 
       {/* Section 5: Business Objectives */}
+      {currentStep === 5 && (
       <div>
         <SectionHeader title="Section 5: Business Objectives" />
         <div className="flex flex-col gap-5">
@@ -342,8 +390,10 @@ const AdvertiserForm = ({ onSuccess }) => {
           </div>
         </div>
       </div>
+      )}
 
       {/* Section 6: Confirmation */}
+      {currentStep === 6 && (
       <div>
         <SectionHeader title="Section 6: Confirmation" />
         <div className="flex flex-col gap-5">
@@ -372,18 +422,33 @@ const AdvertiserForm = ({ onSuccess }) => {
           </div>
         </div>
       </div>
+      )}
 
-      <div className="mt-4 pt-4 border-t border-gray-200">
-        <button type="submit" disabled={isLoading} className={`w-full bg-[#a4d64f] text-[#202523] px-8 py-4 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_10px_25px_rgba(164,214,79,0.3)] text-base sm:text-lg flex justify-center items-center gap-3 ${isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#b5e663] hover:-translate-y-1 cursor-pointer'}`}>
-          {isLoading ? (
-            <>
-              <div className="w-5 h-5 border-2 border-[#202523] border-t-transparent rounded-full animate-spin"></div>
-              Submitting...
-            </>
-          ) : (
-            'Submit Application'
-          )}
-        </button>
+      <div className="mt-6 pt-4 border-t border-gray-200 flex justify-between gap-4">
+        {currentStep > 1 && (
+          <button type="button" onClick={prevStep} className="bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-bold uppercase tracking-wider transition-all hover:bg-gray-300 cursor-pointer">
+            Previous
+          </button>
+        )}
+        {currentStep < 6 ? (
+          <div className="ml-auto flex items-center gap-4">
+            {!validateStep() && <span className="text-sm text-gray-500 hidden sm:inline">Please complete required fields</span>}
+            <button type="button" onClick={nextStep} disabled={!validateStep()} className={`bg-[#a4d64f] text-[#202523] px-8 py-3 rounded-xl font-black uppercase tracking-wider transition-all shadow-[0_4px_14px_rgba(164,214,79,0.3)] ${!validateStep() ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#b5e663] hover:-translate-y-0.5 cursor-pointer'}`}>
+              Next
+            </button>
+          </div>
+        ) : (
+          <button type="submit" disabled={isLoading || !validateStep()} className={`ml-auto bg-[#a4d64f] text-[#202523] px-8 py-3 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_10px_25px_rgba(164,214,79,0.3)] text-base sm:text-lg flex justify-center items-center gap-3 ${isLoading || !validateStep() ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#b5e663] hover:-translate-y-1 cursor-pointer'}`}>
+            {isLoading ? (
+              <>
+                <div className="w-5 h-5 border-2 border-[#202523] border-t-transparent rounded-full animate-spin"></div>
+                Submitting...
+              </>
+            ) : (
+              'Submit'
+            )}
+          </button>
+        )}
       </div>
 
     </form>
