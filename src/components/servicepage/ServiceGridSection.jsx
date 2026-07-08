@@ -19,7 +19,7 @@ const blogPosts = [
     title: "Growth & Expansion Strategy to Identify Opportunities and Scale Your Business",
     date: "July 2, 2026",
     author: "Admin",
-    slug: "business-growth-consultancy"
+    slug: "growth-strategy"
   },
   {
     id: 3,

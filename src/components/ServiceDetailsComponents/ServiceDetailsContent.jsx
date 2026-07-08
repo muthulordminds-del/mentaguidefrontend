@@ -35,39 +35,71 @@ const ServiceDetailsContent = ({ details }) => {
             {details.sectionTitle}
           </h3>
 
-          <p className="mt-5 text-[15px] leading-7 text-[#6f767d]">
-            {details.sectionText}
-          </p>
+          {/* New Service Layout */}
+          {details.services ? (
+            <div className="mt-8 space-y-10">
+              {details.services.map((service, index) => (
+                <div key={index}>
+                  <h4 className="text-2xl font-bold text-[#071f1f] mb-4">
+                    {service.title}
+                  </h4>
 
-          <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-            {details.highlights.map((highlight) => (
-              <li
-                key={highlight}
-                className="flex items-start gap-2 text-sm font-medium text-[#6f767d]"
-              >
-                <FiCheck className="mt-1 shrink-0 text-[#be976b]" aria-hidden="true" />
-                <span>{highlight}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 grid gap-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] md:items-start">
-            <img
-              src={details.contentImage}
-              alt={`${details.title} consultation`}
-              className="h-[220px] w-full rounded-[14px] object-cover sm:h-[260px] md:h-full"
-            />
-
-            <div className="space-y-4 text-[15px] leading-7 text-[#6f767d]">
-              {details.imageText.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                  <p className="text-[16px] leading-8 text-[#6f767d]">
+                    {service.description}
+                  </p>
+                </div>
               ))}
-            </div>
-          </div>
 
-          <p className="mt-8 text-[15px] leading-7 text-[#6f767d]">
-            {details.closing}
-          </p>
+              <div className="mt-10">
+                <img
+                  src={details.contentImage}
+                  alt={details.title}
+                  className="w-full rounded-[14px] object-cover"
+                />
+              </div>
+
+              <p className="text-[16px] leading-8 text-[#6f767d]">
+                {details.closing}
+              </p>
+            </div>
+          ) : (
+            <>
+              {/* Old Layout */}
+              <p className="mt-5 text-[15px] leading-7 text-[#6f767d]">
+                {details.sectionText}
+              </p>
+
+              <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+                {details.highlights.map((highlight) => (
+                  <li
+                    key={highlight}
+                    className="flex items-start gap-2 text-sm font-medium text-[#6f767d]"
+                  >
+                    <FiCheck className="mt-1 shrink-0 text-[#be976b]" />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 grid gap-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] md:items-start">
+                <img
+                  src={details.contentImage}
+                  alt={details.title}
+                  className="h-[220px] w-full rounded-[14px] object-cover sm:h-[260px] md:h-full"
+                />
+
+                <div className="space-y-4 text-[15px] leading-7 text-[#6f767d]">
+                  {details.imageText.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              <p className="mt-8 text-[15px] leading-7 text-[#6f767d]">
+                {details.closing}
+              </p>
+            </>
+          )}
         </article>
 
         <aside className="space-y-8 lg:sticky lg:top-28">
