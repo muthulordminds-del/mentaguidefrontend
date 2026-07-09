@@ -111,7 +111,7 @@ const Homepage = () => {
                 <div className="w-full h-screen snap-start overflow-hidden relative"><VisionSection /></div>
                 <div className="w-full h-screen snap-start overflow-hidden relative"><VerticalsSection /></div>
                 <div className="w-full h-screen snap-start overflow-hidden relative"><TrafficSourcesSection /></div>
-                <div className="w-full h-screen snap-start overflow-hidden relative"><AdvertisersSection /></div>
+                {/* <div className="w-full h-screen snap-start overflow-hidden relative"><AdvertisersSection /></div> */}
                 <div className="w-full h-screen snap-start overflow-hidden relative"><ProcessSection /></div>
                 <div className="w-full h-screen snap-start overflow-hidden relative"><NumbersSection /></div>
                 <div className="w-full h-screen snap-start overflow-hidden relative"><TeamSection /></div>

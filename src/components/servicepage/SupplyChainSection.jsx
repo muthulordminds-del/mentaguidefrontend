@@ -10,55 +10,57 @@ const SupplyChainSection = () => {
           
           {/* Card 1: Supply Chain & Logistics */}
           <div className="bg-[#f0f2f4] rounded-3xl overflow-hidden flex flex-col border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
-            <div className="h-56 sm:h-64 lg:h-72 w-full">
-              <img src={compliance1} alt="Compliance & Sustainability" className="w-full h-full object-cover" />
-            </div>
-            <div className="p-8 sm:p-10 flex flex-col flex-grow">
-              <h3 className="text-2xl sm:text-[1.75rem] font-bold text-[#142033] font-gilroy mb-4">
-                Compliance & Sustainability
-              </h3>
-              <p className="text-[#5b6a7a] mb-6 leading-[1.8] text-[0.95rem] font-medium max-w-sm">
-                Helping organizations meet statutory, industry, and global compliance standards.
-              </p>
-              
-              <div className="flex flex-col gap-4">
-                {/* Box 1 */}
-                <div className="bg-white p-5 sm:p-6 rounded-2xl flex items-start gap-5 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-white">
-                  <div className="shrink-0 text-[#142033] pt-1">
-                    <svg className="w-[1.4rem] h-[1.4rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="18" cy="5" r="3"></circle>
-                      <circle cx="6" cy="12" r="3"></circle>
-                      <circle cx="18" cy="19" r="3"></circle>
-                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                    </svg>
+            <Link to={`/service/compliance-certification-sustainability`} className="flex flex-col group cursor-pointer bg-white rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-100 h-full overflow-hidden">
+              <div className="h-56 sm:h-64 lg:h-72 w-full">
+                <img src={compliance1} alt="Compliance & Sustainability" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-8 sm:p-10 flex flex-col flex-grow">
+                <h3 className="text-2xl sm:text-[1.75rem] font-bold text-[#142033] font-gilroy mb-4">
+                  Compliance & Sustainability
+                </h3>
+                <p className="text-[#5b6a7a] mb-6 leading-[1.8] text-[0.95rem] font-medium max-w-sm">
+                  Helping organizations meet statutory, industry, and global compliance standards.
+                </p>
+                
+                <div className="flex flex-col gap-4">
+                  {/* Box 1 */}
+                  <div className="bg-white p-5 sm:p-6 rounded-2xl flex items-start gap-5 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-white">
+                    <div className="shrink-0 text-[#142033] pt-1">
+                      <svg className="w-[1.4rem] h-[1.4rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Global Certifications</h4>
+                      <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">ISO Certification, Trademark Registration, and ESG Consulting.</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Global Certifications</h4>
-                    <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">ISO Certification, Trademark Registration, and ESG Consulting.</p>
-                  </div>
-                </div>
 
-                {/* Box 2 */}
-                <div className="bg-white p-5 sm:p-6 rounded-2xl flex items-start gap-5 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-white">
-                  <div className="shrink-0 text-[#142033] pt-1">
-                    <svg className="w-[1.4rem] h-[1.4rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                      <line x1="9" y1="9" x2="9" y2="15"></line>
-                      <line x1="15" y1="9" x2="15" y2="15"></line>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Regulatory Compliance</h4>
-                    <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">End-to-end guidance to maintain statutory regulations.</p>
+                  {/* Box 2 */}
+                  <div className="bg-white p-5 sm:p-6 rounded-2xl flex items-start gap-5 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-white">
+                    <div className="shrink-0 text-[#142033] pt-1">
+                      <svg className="w-[1.4rem] h-[1.4rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="9" x2="9" y2="15"></line>
+                        <line x1="15" y1="9" x2="15" y2="15"></line>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-[#142033] font-bold text-[0.95rem] mb-1">Regulatory Compliance</h4>
+                      <p className="text-[#5b6a7a] text-sm leading-relaxed font-medium">End-to-end guidance to maintain statutory regulations.</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Card 2: Strategic Consulting */}
-          <div className="bg-[#271247] rounded-3xl overflow-hidden flex flex-col shadow-sm hover:shadow-lg transition-all duration-300">
+          {/* <div className="bg-[#271247] rounded-3xl overflow-hidden flex flex-col shadow-sm hover:shadow-lg transition-all duration-300">
             <div className="h-56 sm:h-64 lg:h-72 w-full">
               <img src={industrycertifications1} alt="Industry Certifications" className="w-full h-full object-cover" />
             </div>
@@ -90,7 +92,7 @@ const SupplyChainSection = () => {
                 Explore Certifications
               </Link>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </div>

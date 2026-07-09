@@ -7,14 +7,14 @@ import GlobalCommerceSection from '../components/servicepage/GlobalCommerceSecti
 import SupplyChainSection from '../components/servicepage/SupplyChainSection'
 import IPOMainBoardSection from '../components/servicepage/IPOMainBoardSection'
 import CTASection from '../components/servicepage/CTASection'
-import ServiceGridSection from '../components/servicepage/ServiceGridSection'
+// import ServiceGridSection from '../components/servicepage/ServiceGridSection'
 
 const Servicepage = () => {
     return (
         <div>
             <ServiceHerosection />
             <Managementsection />
-              <ServiceGridSection />
+            {/* <ServiceGridSection /> */}
             {/* <Agriculturalsection /> */}
             {/* <GlobalCommerceSection /> */}
             <IPOMainBoardSection />

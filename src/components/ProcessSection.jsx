@@ -3,28 +3,28 @@ import React from 'react';
 const steps = [
   {
     number: '01',
-    title: 'Consultation',
-    description: 'We start by understanding your business, goals, and the certifications you need.',
+    title: 'Strategic Assessment & Planning',
+    description: 'Establish a foundation for growth by developing clear strategic roadmaps, optimizing business models, and identifying market expansion opportunities through comprehensive advisory services.',
   },
   {
     number: '02',
-    title: 'Requirement Analysis',
-    description: 'We identify the exact standards and requirements based on your industry and target market.',
+    title: 'Operational Optimization',
+    description: 'Analyze and refine core business processes, resolve bottlenecks, and implement supply chain management improvements to drive efficiency, productivity, and reduced costs.',
   },
   {
     number: '03',
-    title: 'Documentation',
-    description: 'We help you prepare and organize all necessary documents accurately and efficiently.',
+    title: 'Financial & Governance Foundation',
+    description: 'Build integrity and transparency by establishing robust accounting, budgeting, and financial planning systems alongside strong corporate governance and secretarial compliance practices.',
   },
   {
     number: '04',
-    title: 'Pre-Audit Preparation',
-    description: 'We guide you through checks and corrections to ensure your business is fully ready before the audit.',
+    title: 'Risk Mitigation & Restructuring',
+    description: 'Fortify the business through proactive risk management, crisis planning, and necessary corporate restructuring to ensure stability and agility amidst changing market demands.',
   },
   {
     number: '05',
-    title: 'Certification Support',
-    description: 'We support you throughout the certification process, making sure everything is in place for a smooth outcome.',
+    title: 'Sustainability & Market Validation',
+    description: 'Achieve long-term value by integrating EHS  practices, securing necessary certifications (ISO, Export, etc.), and conducting thorough due diligence to support confident, sustainable decision-making.',
   },
 ];
 
