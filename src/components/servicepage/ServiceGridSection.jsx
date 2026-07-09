@@ -31,24 +31,6 @@ const blogPosts = [
     slug: "finance-taxation-corporate-affairs"
   },
   {
-    id: 4,
-    image: service4,
-    category: "COMPLIANCE SERVICES",
-    title: "ISO Certification, Trademark Registration and ESG Consulting for Businesses",
-    date: "July 2, 2026",
-    author: "Admin",
-    slug: "compliance-certification-sustainability"
-  },
-  {
-    id: 5,
-    image: service5,
-    category: "IPO ADVISORY",
-    title: "Complete IPO Advisory Services for SME and Mainboard Business Listings",
-    date: "July 2, 2026",
-    author: "Admin",
-    slug: "ipo-advisory"
-  },
-  {
     id: 6,
     image: service6,
     category: "RISK MANAGEMENT",

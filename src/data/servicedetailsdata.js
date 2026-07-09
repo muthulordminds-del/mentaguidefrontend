@@ -307,10 +307,11 @@ export const complianceDetails = {
 }
  
 // 5. IPO Advisory
+// 5. IPO Advisory — Roadmap Format (all 23 steps preserved)
 export const ipoAdvisoryDetails = {
-  slug: "ipo-advisory",
+  slug: 'ipo-advisory',
 
-  title: "IPO Advisory (SME & Mainboard)",
+  title: 'IPO Advisory (SME & Mainboard)',
 
   heroImage: ipo1,
   contentImage: ipo2,
@@ -320,121 +321,121 @@ export const ipoAdvisoryDetails = {
     "Taking a company public is a significant milestone that requires strategic planning, regulatory compliance, financial readiness, and seamless coordination among multiple stakeholders. MentaGuide provides comprehensive IPO advisory services to help businesses successfully transition from a private company to a publicly listed entity. Our experienced team works alongside merchant bankers, legal advisors, chartered accountants, company secretaries, and other professionals to ensure a smooth, compliant, and value-driven IPO journey."
   ],
 
-  sectionTitle: "Our IPO Advisory Services",
+  sectionTitle: "Road Map for IPO Advisory",
 
   services: [
     {
-      title: "1. IPO Readiness Assessment",
+      title: "Step 1: IPO Readiness Assessment",
       description:
         "Every successful IPO begins with understanding where your business stands today. We conduct a comprehensive assessment of your company's financial, operational, legal, governance, and compliance readiness to identify gaps and develop an action plan for a successful listing."
     },
     {
-      title: "2. Business Structuring & Corporate Restructuring",
+      title: "Step 2: Business Structuring & Corporate Restructuring",
       description:
         "A well-structured organization attracts investors and supports long-term growth. We assist businesses in optimizing their corporate structure, shareholding pattern, capitalization, and governance framework to align with IPO requirements and improve operational efficiency."
     },
     {
-      title: "3. IPO Strategy & Roadmap",
+      title: "Step 3: IPO Strategy & Roadmap",
       description:
         "A clear roadmap is essential for executing a successful public issue. We develop a structured IPO strategy covering timelines, regulatory milestones, documentation, stakeholder responsibilities, valuation planning, and overall execution to ensure a smooth listing process."
     },
     {
-      title: "4. Merchant Banker Coordination",
+      title: "Step 4: Merchant Banker Coordination",
       description:
         "Merchant bankers play a central role throughout the IPO lifecycle. We act as a single point of coordination between your organization and merchant bankers, ensuring effective communication, timely documentation, and seamless execution from planning through listing."
     },
     {
-      title: "5. Registrar & Transfer Agent (RTA) Coordination",
+      title: "Step 5: Registrar & Transfer Agent (RTA) Coordination",
       description:
         "Efficient shareholder management is critical during and after an IPO. We coordinate with RTAs for shareholder data verification, issue management, allotment processes, reconciliation, and post-listing services to ensure accurate and timely execution."
     },
     {
-      title: "6. SEBI & Stock Exchange Coordination",
+      title: "Step 6: SEBI & Stock Exchange Coordination",
       description:
         "Navigating regulatory requirements requires continuous engagement with market authorities. We facilitate communication and documentation with SEBI, NSE, BSE, and other regulatory bodies, ensuring timely submissions and compliance throughout the IPO process."
     },
     {
-      title: "7. Due Diligence Support",
+      title: "Step 7: Due Diligence Support",
       description:
         "Comprehensive due diligence builds investor confidence and reduces transaction risks. We coordinate financial, legal, secretarial, tax, operational, and commercial due diligence activities, ensuring all critical aspects of the business are thoroughly reviewed before listing."
     },
     {
-      title: "8. Financial Due Diligence",
+      title: "Step 8: Financial Due Diligence",
       description:
         "Reliable financial reporting is fundamental to a successful IPO. We support the review of financial statements, accounting policies, internal controls, and historical financial performance to ensure transparency, regulatory compliance, and investor confidence."
     },
     {
-      title: "9. Legal & Secretarial Due Diligence",
+      title: "Step 9: Legal & Secretarial Due Diligence",
       description:
         "Strong legal and corporate governance frameworks are essential for public companies. We review statutory records, corporate documents, governance practices, contracts, and legal compliances to ensure your business is fully prepared for regulatory scrutiny."
     },
     {
-      title: "10. Corporate Governance Framework",
+      title: "Step 10: Corporate Governance Framework",
       description:
         "Good governance is a cornerstone of every listed company. We help establish effective board structures, independent committees, internal control systems, governance policies, and compliance mechanisms that meet investor and regulatory expectations."
     },
     {
-      title: "11. Financial Reporting & Restatement Support",
+      title: "Step 11: Financial Reporting & Restatement Support",
       description:
         "Public companies must comply with stringent financial reporting standards. We coordinate the preparation and restatement of financial statements in accordance with applicable accounting standards and regulatory requirements for IPO filings."
     },
     {
-      title: "12. Valuation Support",
+      title: "Step 12: Valuation Support",
       description:
         "An accurate business valuation plays a key role in determining issue pricing and attracting investors. We coordinate with registered valuers and merchant bankers to support valuation exercises and provide inputs for pricing strategy and capital raising objectives."
     },
     {
-      title: "13. Drafting & Documentation Support",
+      title: "Step 13: Drafting & Documentation Support",
       description:
         "IPO documentation requires precision, accuracy, and regulatory compliance. We assist in preparing corporate documents, disclosures, business information, and supporting documentation required throughout the IPO process."
     },
     {
-      title: "14. DRHP / RHP Documentation Coordination",
+      title: "Step 14: DRHP / RHP Documentation Coordination",
       description:
         "The Draft Red Herring Prospectus (DRHP) and Red Herring Prospectus (RHP) are among the most critical IPO documents. We coordinate their preparation, review, and regulatory submissions, ensuring all disclosures are accurate, complete, and compliant."
     },
     {
-      title: "15. Regulatory Compliance Management",
+      title: "Step 15: Regulatory Compliance Management",
       description:
         "Compliance is at the heart of every successful IPO. We help businesses comply with the Companies Act, SEBI Regulations, FEMA, Stock Exchange requirements, and other applicable laws to ensure a smooth and compliant listing journey."
     },
     {
-      title: "16. Capital Restructuring",
+      title: "Step 16: Capital Restructuring",
       description:
         "Optimizing share capital before listing enhances investor confidence and regulatory readiness. We assist with bonus issues, stock splits, ESOP restructuring, preferential allotments, share capital reconciliation, and other capital restructuring activities."
     },
     {
-      title: "17. Investor Readiness",
+      title: "Step 17: Investor Readiness",
       description:
         "Successful IPOs require effective communication with potential investors. We prepare management teams for investor meetings, presentations, roadshows, disclosures, and public interactions, helping them confidently communicate the company's growth story."
     },
     {
-      title: "18. Internal Controls & Risk Management",
+      title: "Step 18: Internal Controls & Risk Management",
       description:
         "Robust internal controls improve governance and enhance investor trust. We help strengthen internal control systems, enterprise risk management frameworks, compliance monitoring, and business processes to support long-term corporate performance."
     },
     {
-      title: "19. ESG & Sustainability Readiness",
+      title: "Step 19: ESG & Sustainability Readiness",
       description:
         "Investors increasingly evaluate companies based on sustainability and governance practices. We help organizations develop ESG strategies, strengthen governance frameworks, and prepare sustainability disclosures that align with regulatory requirements and investor expectations."
     },
     {
-      title: "20. Tax & FEMA Advisory",
+      title: "Step 20: Tax & FEMA Advisory",
       description:
         "Cross-border transactions and tax planning require careful regulatory compliance. We provide advisory support on tax structuring, FEMA regulations, FCGPR filings, ODI/FDI compliance, and other related matters to ensure efficient and compliant capital market transactions."
     },
     {
-      title: "21. Coordination with Professional Advisors",
+      title: "Step 21: Coordination with Professional Advisors",
       description:
         "A successful IPO requires seamless collaboration among multiple experts. MentaGuide coordinates with merchant bankers, chartered accountants, company secretaries, legal advisors, RTAs, depositories (NSDL/CDSL), registered valuers, bankers, underwriters, and investor relations agencies to ensure every stage of the IPO is managed efficiently."
     },
     {
-      title: "22. Pre-IPO Compliance",
+      title: "Step 22: Pre-IPO Compliance",
       description:
         "Preparing for an IPO involves strengthening the company's legal, financial, and governance foundation. We assist with corporate restructuring, statutory and secretarial compliances, financial clean-up, share capital reconciliation, dematerialization of shares, regulatory filings, and obtaining all necessary board and shareholder approvals before the public issue."
     },
     {
-      title: "23. IPO Execution Support",
+      title: "Step 23: IPO Execution Support",
       description:
         "From regulatory filings to the listing ceremony, we provide end-to-end execution support throughout the IPO process. Our services include issue management coordination, investor documentation, roadshow support, regulatory submissions, public issue management, and listing coordination, ensuring a seamless transition from a private company to a listed enterprise."
     }

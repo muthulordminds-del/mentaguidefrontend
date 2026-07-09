@@ -39,34 +39,71 @@ const ServiceDetailsContent = ({ details }) => {
           {details.services ? (
             details.slug === 'ipo-advisory' ? (
               <div className="mt-8">
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {details.services.map((service, index) => {
-                    const cleanTitle = service.title.replace(/^\d+\.\s*/, '')
-                    const shortDesc = service.description.split('. ')[0].trim().replace(/\.$/, '') + '.'
+                {(() => {
+                  const phases = [
+                    { label: 'Readiness & Strategy', count: 3 },
+                    { label: 'Stakeholder Coordination', count: 3 },
+                    { label: 'Due Diligence', count: 3 },
+                    { label: 'Governance & Valuation', count: 3 },
+                    { label: 'Documentation & Filings', count: 3 },
+                    { label: 'Capital & Investor Readiness', count: 5 },
+                    { label: 'Final Compliance & Execution', count: 3 }
+                  ]
 
-                    return (
-                      <div
-                        key={index}
-                        className="flex items-start gap-3 rounded-[12px] border border-[#eceeee] p-4"
-                      >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2f5355] text-xs font-bold text-white">
-                          {index + 1}
-                        </span>
+                  let cursor = 0
+                  const grouped = phases.map((phase) => {
+                    const items = details.services.slice(cursor, cursor + phase.count)
+                    cursor += phase.count
+                    return { ...phase, items }
+                  })
 
-                        <div className="min-w-0">
-                          <h4 className="text-[15px] font-bold leading-5 text-[#071f1f]">
-                            {cleanTitle}
-                          </h4>
-                          <p className="mt-1 text-[13px] leading-5 text-[#6f767d]">
-                            {shortDesc}
-                          </p>
-                        </div>
+                  return (
+                    <div className="relative">
+                      {/* continuous vertical line */}
+                      <span
+                        aria-hidden="true"
+                        className="absolute left-[19px] top-2 bottom-2 w-px bg-[#e2e5e4] sm:left-[23px]"
+                      />
+
+                      <div className="space-y-10">
+                        {grouped.map((phase, pIndex) => (
+                          <div key={phase.label}>
+                            <p className="relative mb-5 inline-block bg-white pr-4 text-xs font-bold uppercase tracking-[0.14em] text-[#be976b]">
+                              {phase.label}
+                            </p>
+
+                            <div className="space-y-6">
+                              {phase.items.map((service, i) => {
+                                const globalIndex =
+                                  phases.slice(0, pIndex).reduce((sum, p) => sum + p.count, 0) + i
+                                const cleanTitle = service.title.replace(/^Step\s*\d+:\s*/, '')
+
+                                return (
+                                  <div key={globalIndex} className="relative flex gap-5 pl-0 sm:gap-6">
+                                    <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#2f5355] bg-white text-[13px] font-bold text-[#2f5355] sm:h-12 sm:w-12">
+                                      {globalIndex + 1}
+                                    </span>
+
+                                    <div className="min-w-0 pb-1 pt-1">
+                                      <h4 className="text-[16px] font-bold leading-6 text-[#071f1f] sm:text-[17px]">
+                                        {cleanTitle}
+                                      </h4>
+                                      <p className="mt-2 text-[14px] leading-6 text-[#6f767d]">
+                                        {service.description}
+                                      </p>
+                                    </div>
+                                  </div>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    )
-                  })}
-                </div>
+                    </div>
+                  )
+                })()}
 
-                <div className="mt-8">
+                <div className="mt-10">
                   <img
                     src={details.contentImage}
                     alt={details.title}
@@ -163,7 +200,7 @@ const ServiceDetailsContent = ({ details }) => {
                 </Link>
               ))}
             </nav>
-          </div> 
+          </div>
 
           <div className="rounded-[16px] bg-[#2f5355] p-6 text-white sm:p-7">
             <h3 className="font-gilroy text-xl font-semibold">{serviceHelpInfo.title}</h3>

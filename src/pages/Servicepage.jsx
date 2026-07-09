@@ -18,8 +18,8 @@ const Servicepage = () => {
             {/* <ServiceGridSection /> */}
             {/* <Agriculturalsection /> */}
             {/* <GlobalCommerceSection /> */}
-            <IPOMainBoardSection />
-            <SupplyChainSection />
+            {/* <IPOMainBoardSection /> */}
+            {/* <SupplyChainSection /> */}
             <CTASection />
             <IndustriesServedSection />
 
