@@ -131,6 +131,31 @@ const Managementsection = () => {
                     </div>
                   ))}
                 </div>
+
+                <div className="mt-8 pt-7 border-t border-gray-100">
+                  <h4 className="mb-5 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#0c223a]">
+                    Ideal For
+                  </h4>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+                    {[
+                      "Companies planning a Main Board IPO",
+                      "Fast-growing SMEs",
+                      "Mid-sized enterprises",
+                      "Family-owned businesses transitioning",
+                      "Export-led businesses"
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#fff8f2] border border-[#ffe4ce] text-[#f7811d] font-bold text-[0.7rem] shrink-0">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-[#5b6a7a] text-[0.9rem] font-medium leading-snug pt-[2px]">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Link>
           </div>
