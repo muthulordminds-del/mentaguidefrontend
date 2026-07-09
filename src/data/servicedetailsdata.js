@@ -513,23 +513,23 @@ export const certificationsDetails = {
 // Main Object
 export const serviceDetailsData = {
   [businessGrowthDetails.slug]: businessGrowthDetails,
-  [growthStrategyDetails.slug]: growthStrategyDetails,
+  // [growthStrategyDetails.slug]: growthStrategyDetails,
   [financeTaxationDetails.slug]: financeTaxationDetails,
   [complianceDetails.slug]: complianceDetails,
   [ipoAdvisoryDetails.slug]: ipoAdvisoryDetails,
-  [industriesServedDetails.slug]: industriesServedDetails,
-  [certificationsDetails.slug]: certificationsDetails,
+  // [industriesServedDetails.slug]: industriesServedDetails,
+  // [certificationsDetails.slug]: certificationsDetails,
 }
 
 // Links
 export const allServiceLinks = [
   { title: businessGrowthDetails.title, slug: businessGrowthDetails.slug },
-  { title: growthStrategyDetails.title, slug: growthStrategyDetails.slug },
+  // { title: growthStrategyDetails.title, slug: growthStrategyDetails.slug },
   { title: financeTaxationDetails.title, slug: financeTaxationDetails.slug },
   { title: complianceDetails.title, slug: complianceDetails.slug },
   { title: ipoAdvisoryDetails.title, slug: ipoAdvisoryDetails.slug },
-  { title: industriesServedDetails.title, slug: industriesServedDetails.slug },
-  { title: certificationsDetails.title, slug: certificationsDetails.slug },
+  // { title: industriesServedDetails.title, slug: industriesServedDetails.slug },
+  // { title: certificationsDetails.title, slug: certificationsDetails.slug },
 ]
 
 export const serviceHelpInfo = {

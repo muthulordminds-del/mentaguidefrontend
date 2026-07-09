@@ -5,6 +5,7 @@ import Managementsection from '../components/servicepage/Managementsection'
 import Agriculturalsection from '../components/servicepage/Agriculturalsection'
 import GlobalCommerceSection from '../components/servicepage/GlobalCommerceSection'
 import SupplyChainSection from '../components/servicepage/SupplyChainSection'
+import IndustriesServedSection from '../components/servicepage/IndustriesServedSection'
 import IPOMainBoardSection from '../components/servicepage/IPOMainBoardSection'
 import CTASection from '../components/servicepage/CTASection'
 // import ServiceGridSection from '../components/servicepage/ServiceGridSection'
@@ -20,6 +21,7 @@ const Servicepage = () => {
             <IPOMainBoardSection />
             <SupplyChainSection />
             <CTASection />
+            <IndustriesServedSection />
 
         </div>
     )

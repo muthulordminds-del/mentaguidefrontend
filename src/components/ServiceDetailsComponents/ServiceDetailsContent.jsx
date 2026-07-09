@@ -37,31 +37,74 @@ const ServiceDetailsContent = ({ details }) => {
 
           {/* New Service Layout */}
           {details.services ? (
-            <div className="mt-8 space-y-10">
-              {details.services.map((service, index) => (
-                <div key={index}>
-                  <h4 className="text-2xl font-bold text-[#071f1f] mb-4">
-                    {service.title}
-                  </h4>
+            details.slug === 'ipo-advisory' ? (
+              <div className="mt-8">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {details.services.map((service, index) => {
+                    const cleanTitle = service.title.replace(/^\d+\.\s*/, '')
+                    const shortDesc = service.description.split('. ')[0].trim().replace(/\.$/, '') + '.'
 
-                  <p className="text-[16px] leading-8 text-[#6f767d]">
-                    {service.description}
-                  </p>
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 rounded-[12px] border border-[#eceeee] p-4"
+                      >
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2f5355] text-xs font-bold text-white">
+                          {index + 1}
+                        </span>
+
+                        <div className="min-w-0">
+                          <h4 className="text-[15px] font-bold leading-5 text-[#071f1f]">
+                            {cleanTitle}
+                          </h4>
+                          <p className="mt-1 text-[13px] leading-5 text-[#6f767d]">
+                            {shortDesc}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
-              ))}
 
-              <div className="mt-10">
-                <img
-                  src={details.contentImage}
-                  alt={details.title}
-                  className="w-full rounded-[14px] object-cover"
-                />
+                <div className="mt-8">
+                  <img
+                    src={details.contentImage}
+                    alt={details.title}
+                    className="w-full rounded-[14px] object-cover"
+                  />
+                </div>
+
+                <p className="mt-8 text-[16px] leading-8 text-[#6f767d]">
+                  {details.closing}
+                </p>
               </div>
+            ) : (
+              <div className="mt-8 space-y-10">
+                {details.services.map((service, index) => (
+                  <div key={index}>
+                    <h4 className="text-2xl font-bold text-[#071f1f] mb-4">
+                      {service.title}
+                    </h4>
 
-              <p className="text-[16px] leading-8 text-[#6f767d]">
-                {details.closing}
-              </p>
-            </div>
+                    <p className="text-[16px] leading-8 text-[#6f767d]">
+                      {service.description}
+                    </p>
+                  </div>
+                ))}
+
+                <div className="mt-10">
+                  <img
+                    src={details.contentImage}
+                    alt={details.title}
+                    className="w-full rounded-[14px] object-cover"
+                  />
+                </div>
+
+                <p className="text-[16px] leading-8 text-[#6f767d]">
+                  {details.closing}
+                </p>
+              </div>
+            )
           ) : (
             <>
               {/* Old Layout */}
