@@ -4,7 +4,7 @@ import { service1 , service2 , service3 ,service4 , service5, service6 , service
 
 const blogPosts = [
   {
-    id: 1,
+    id: 1, 
     image: service1,
     category: "BUSINESS CONSULTANCY",
     title: "Business Strategy & Transformation for Sustainable Growth and Long-Term Success",

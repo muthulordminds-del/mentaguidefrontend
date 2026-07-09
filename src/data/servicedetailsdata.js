@@ -305,7 +305,7 @@ export const complianceDetails = {
   closing:
     "At MentaGuide, we help businesses build resilient, compliant, and future-ready organizations through expert certification, regulatory compliance, intellectual property, and sustainability advisory services. Our integrated approach strengthens governance, enhances brand credibility, supports global market expansion, and drives sustainable long-term growth."
 }
-
+ 
 // 5. IPO Advisory
 export const ipoAdvisoryDetails = {
   slug: "ipo-advisory",

@@ -120,7 +120,7 @@ const ServiceDetailsContent = ({ details }) => {
                 </Link>
               ))}
             </nav>
-          </div>
+          </div> 
 
           <div className="rounded-[16px] bg-[#2f5355] p-6 text-white sm:p-7">
             <h3 className="font-gilroy text-xl font-semibold">{serviceHelpInfo.title}</h3>
