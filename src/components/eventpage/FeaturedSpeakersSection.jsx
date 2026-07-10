@@ -118,7 +118,7 @@ const FeaturedSpeakersSection = () => {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {speakers.map((speaker, index) => (
             <article
               key={speaker.name}
@@ -142,7 +142,7 @@ const FeaturedSpeakersSection = () => {
               </div>
             </article>
           ))}
-        </div>
+        </div> */}
 
         <figure className="relative mx-auto mt-12 max-w-4xl rounded-xl bg-[#fff8f1] px-6 py-9 text-center shadow-[0_14px_32px_rgba(70,40,18,0.06)] sm:px-10">
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/4 font-serif text-5xl leading-none text-[#ffd2a8]">
