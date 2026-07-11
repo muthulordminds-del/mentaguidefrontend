@@ -7,7 +7,7 @@ import { Mentaguidelogo1 } from '../../assets/images';
 import { AppContext } from '../../context/AppContext';
 import AdvertiserForm from '../AdvertiserForm';
 
-const Navbar = ({ activeIndex, showHeroLogo }) => {
+const Navbar = ({ activeIndex, showHeroLogo, hideFloatingNav = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -176,6 +176,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
           </header>
 
           {/* Left Vertical (Countries) */}
+          {!hideFloatingNav && (
           <div className={`${positionClass} left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
             <div className={`-rotate-90 flex items-center gap-3 text-[0.85rem] lg:text-[0.9rem] tracking-widest font-bold font-gilroy uppercase whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Home</a> <span className="font-light opacity-50">|</span>
@@ -186,8 +187,10 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
               {/* <a href="#" className="hover:text-[#a4d64f] transition-colors">USA</a> */}
             </div>
           </div>
+          )}
 
           {/* Right Vertical (Socials) */}
+          {!hideFloatingNav && (
           <div className={`${positionClass} right-8 md:right-10 lg:right-12 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
             <div className={`rotate-90 flex items-center gap-6 text-[0.85rem] lg:text-[1rem] font-bold font-gilroy tracking-wider whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="https://www.facebook.com/profile.php?id=61589020599973&sk=about" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors lowercase">facebook</a>
@@ -197,8 +200,10 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
               <a href="https://www.youtube.com/@MENTAGUIDE" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors lowercase">youtube</a>
             </div>
           </div>
+          )}
 
           {/* Bottom Elements */}
+          {!hideFloatingNav && (
           <div className={`${positionClass} ${location.pathname === '/about' ? 'top-[calc(100vh-0.0rem)] sm:top-[calc(100vh-1rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : isAboutPage ? 'top-[calc(100vh-8rem)] sm:top-[calc(100vh-6rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-8 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
             <div className={`flex flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
               {!isLoggedIn && (
@@ -212,6 +217,7 @@ const Navbar = ({ activeIndex, showHeroLogo }) => {
               <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer whitespace-nowrap">mentaguide6@gmail.com</a>
             </div>
           </div>
+          )}
         </div>
       )}
 

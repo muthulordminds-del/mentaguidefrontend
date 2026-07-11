@@ -12,7 +12,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Shared/Navbar'
 import ContactSection from './components/ContactSection'
 import Eventpage from './pages/Eventpage'
-import ServiceDetailsPage from './pages/ServiceDetailspage'
+import ServiceDetailsPage from './pages/ServiceDetailsPage'
+import AdvertiserSignupPage from './pages/AdvertiserSignupPage'
 
 const App = () => {
   const location = useLocation()
@@ -22,7 +23,7 @@ const App = () => {
   return (
     <div>
       <ToastContainer />
-      <Navbar />
+      <Navbar hideFloatingNav={location.pathname === '/advertiser-signup'} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/service/:slug" element={<ServiceDetailsPage />} />
         <Route path="/contact" element={<Contactpage />} />
         <Route path="/event" element={<Eventpage />} />
+        <Route path="/advertiser-signup" element={<AdvertiserSignupPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<Resetpassword />} />
         <Route path="/email-verify" element={<Emailverify />} />
