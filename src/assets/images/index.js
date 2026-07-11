@@ -27,7 +27,11 @@ import SA8000logo from "./logos/SA8000logo.jpeg";
 import WRAPlogo from "./logos/WRAPlogo.jpeg";
 
 // posterimg
-import posterforgoogleform from "./posterforgoogleform.jpeg";
+import posterforgoogleform from "./advertiserpopupbanner.jpg";
+
+// Event banner (home page hero) & Advertiser popup banner
+import eventbannerhero from "./eventbannerhero.jpg";
+import advertiserpopupbanner from "./advertiserpopupbanner.jpg";
 
 // Aboutpage images
 import aboutherosectionbg from "./aboutpage/aboutherosectionbg.jpg";
@@ -107,4 +111,4 @@ import eventimg8 from "./eventpage/eventimg8.webp"
 
 
 
-export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform, aboutherosectionbg, aboutherosection1, howweareimg1, howweareimg2, howweareimg3, howweareimg4, howweareimg5, howweareimg6, ourvaluesbg, ourmissionbg, ourmission, serviceherosectionbg, servicesubimg1, serviceimg1, serviceimg2, agriculturalimg,agriculturalbg,globalimg1,globalimg2,supplychainimg1,supplychainimg2,IPOMainBoardbg, contactherobg, telephone1, telephone2, eventherosectionbg,eventimg,speakers1,speakers2,speakers3,speakers4,speakers5,speakers6,eventimg1,eventimg2,eventimg3,eventimg4,eventimg5,eventimg6,eventimg7,eventimg8,service1,service2,service3,service4,service5,service6,service7,servicedetailsbanner,ipo1,ipo2,businessgrowth1,businessgrowth2,compliance1,compliance2,finance1,finance2,industriesserved1,industriesserved2,industrycertifications1,industrycertifications2};
+export { homepagebg1, homepagebg2, homepagebg3, homepageimg1, homepageimg2, homepageimg3, homepageimg4, homepageimg5, homepagebg4, homepagebg5, Mentaguidelogo, Mentaguidelogo1, Sedexlogo, BSCIlogo, GOTSlogo, Halallogo, OCSlogo, SA8000logo, WRAPlogo, posterforgoogleform, aboutherosectionbg, aboutherosection1, howweareimg1, howweareimg2, howweareimg3, howweareimg4, howweareimg5, howweareimg6, ourvaluesbg, ourmissionbg, ourmission, serviceherosectionbg, servicesubimg1, serviceimg1, serviceimg2, agriculturalimg,agriculturalbg,globalimg1,globalimg2,supplychainimg1,supplychainimg2,IPOMainBoardbg, contactherobg, telephone1, telephone2, eventherosectionbg,eventimg,speakers1,speakers2,speakers3,speakers4,speakers5,speakers6,eventimg1,eventimg2,eventimg3,eventimg4,eventimg5,eventimg6,eventimg7,eventimg8,service1,service2,service3,service4,service5,service6,service7,servicedetailsbanner,ipo1,ipo2,businessgrowth1,businessgrowth2,compliance1,compliance2,finance1,finance2,industriesserved1,industriesserved2,industrycertifications1,industrycertifications2,eventbannerhero,advertiserpopupbanner};

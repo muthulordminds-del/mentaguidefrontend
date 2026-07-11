@@ -24,7 +24,7 @@ const AdvertiserSignupPage = () => {
       </div>
 
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 sm:p-8">
-        <AdvertiserForm onSuccess={() => navigate('/')} />
+        <AdvertiserForm onSuccess={() => navigate('/event')} />
       </div>
     </div>
   );

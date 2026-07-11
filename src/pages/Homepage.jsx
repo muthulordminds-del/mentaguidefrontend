@@ -18,7 +18,6 @@ import { AppContext } from '../context/AppContext';
 const Homepage = () => {
     const containerRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [showHeroLogo, setShowHeroLogo] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
     const [showAdvertiserPopup, setShowAdvertiserPopup] = useState(false);
@@ -60,8 +59,6 @@ const Homepage = () => {
     const handleScroll = () => {
         if (!containerRef.current) return;
         const { scrollTop, clientHeight } = containerRef.current;
-        const heroHeight = containerRef.current.firstElementChild?.clientHeight || clientHeight;
-        setShowHeroLogo(scrollTop < heroHeight - 1);
 
         // Add small buffer to perfectly snap before updating dot index
         const scrollIndex = Math.round(scrollTop / clientHeight);
@@ -82,7 +79,7 @@ const Homepage = () => {
         <div className="relative font-sans text-white h-screen w-full overflow-hidden">
             {/* Sticky Overlays */}
             {/* Global Navigation Shell */}
-            <Navbar activeIndex={activeIndex} showHeroLogo={showHeroLogo} />
+            <Navbar activeIndex={activeIndex} />
 
             {/* Pagination Dots Fixed Corner (Kept in Homepage for scroll context) */}
             <div className="fixed bottom-3 left-4 md:bottom-5 md:left-6 lg:bottom-6 lg:left-8 flex items-center gap-2 md:gap-3 z-50 pointer-events-auto">
@@ -114,7 +111,7 @@ const Homepage = () => {
                 {/* <div className="w-full h-screen snap-start overflow-hidden relative"><AdvertisersSection /></div> */}
                 <div className="w-full h-screen snap-start overflow-hidden relative"><ProcessSection /></div>
                 <div className="w-full h-screen snap-start overflow-hidden relative"><NumbersSection /></div>
-                <div className="w-full h-screen snap-start overflow-hidden relative"><TeamSection /></div>
+                {/* <div className="w-full h-screen snap-start overflow-hidden relative"><TeamSection /></div> */}
                 <div className="w-full h-screen snap-start overflow-hidden relative"><ContactSection /></div>
             </div>
 

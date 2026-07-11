@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { Mentaguidelogo1 } from '../assets/images';
 import { AppContext } from '../context/AppContext';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -80,20 +79,14 @@ const ContactSection = () => {
             <h3 className="font-gilroy font-normal text-lg md:text-xl lg:text-2xl mb-4 text-white">Address:</h3>
 
             <div className="font-normal text-xs sm:text-sm lg:text-[1rem] leading-relaxed space-y-4 mb-7 md:mb-8 text-white">
-              <p>vCommission Media Pvt. Ltd.<br />Splendor Spectrum One, Tower 1, 4th Floor,<br />Golf Course Ext, Sec-58, Gurugram, 122001, HR, India</p>
-              <p>Registered Office: vCommission Media Pvt Ltd<br />Regus, Level 4,Rectangle One,<br />D-4 Commercial Complex,<br />Saket, New Delhi,<br />Delhi 110017</p>
+              <p>LordMinds Private Limited.<br />1/1, Manoj nagar, kannampalayam,<br />Sulur, Coimbatore - 641 402</p>
             </div>
 
-            {/* Badges and Logos - Using Mentaguidelogo per request */}
+            {/* Badges */}
             <div className="text-white font-medium text-sm sm:text-base mb-3">Member of</div>
             <div className="flex flex-col gap-3 sm:gap-4">
               <div className="bg-white/20 p-2 rounded-sm inline-block border border-white/40 max-w-max">
                 <span className="text-white text-[10px] sm:text-xs font-bold tracking-widest">COPYSCAPE PROTECTED</span>
-              </div>
-
-              {/* Mentaguide logo placement */}
-              <div className="w-40 h-14 sm:w-48 sm:h-16 md:w-52 md:h-[4.5rem] lg:w-56 lg:h-20 xl:w-64 xl:h-24 rounded-md overflow-hidden flex items-center justify-center p-2 mt-1 sm:mt-2">
-                <img src={Mentaguidelogo1} alt="Mentaguide Logo" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>

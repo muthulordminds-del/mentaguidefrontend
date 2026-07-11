@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { eventherosectionbg } from '../../assets/images';
 
-const summitStart = new Date('2026-03-15T09:00:00-04:00').getTime();
+const summitStart = new Date('2026-08-11T11:11:00+05:30').getTime();
 
 const sponsors = ['Alitalia', 'LEXMARK', 'signifyhealth', 'VIATRIS', 'ROHTO', 'chewy'];
 
@@ -52,22 +52,22 @@ const Herosection = () => {
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
         <div className="mx-auto max-w-4xl pt-4 sm:pt-8 lg:pt-0">
           <h1 className="font-gilroy text-[clamp(1.75rem,5vw,3.5rem)] font-black leading-[1.08] text-white drop-shadow-[0_3px_0_rgba(9,65,145,0.85)]">
-            Global Executive Leadership
-            <span className="block">Summit 2026</span>
+            MentaGuide Business Horizons 2026
+            <span className="block">Discover. Connect. Grow.</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl font-gilroy-light text-xs font-semibold leading-7 text-white sm:text-sm md:text-base">
-            Connect with industry pioneers, explore cutting-edge strategies, and shape the future of business leadership in an exclusive three-day experience.
+            An exclusive business forum bringing together entrepreneurs, industry experts, investors, and policymakers to exchange ideas, build strategic partnerships, and shape the future of sustainable business growth.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-4 text-xs font-bold sm:flex-row sm:gap-10 md:text-sm">
             <div className="flex items-center gap-3">
               <FaCalendarAlt className="text-[#ff7a00]" aria-hidden="true" />
-              <span>March 15-17, 2026</span>
+              <span>August 11, 2026</span>
             </div>
             <div className="flex items-center gap-3">
               <FaMapMarkerAlt className="text-[#ff7a00]" aria-hidden="true" />
-              <span>Grand Palace Hotel, New York</span>
+              <span>Merlis Hotel, Coimbatore</span>
             </div>
           </div>
         </div>
@@ -88,12 +88,12 @@ const Herosection = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
+        <div className="mt-16 flex w-full flex-col items-center justify-center gap-4 sm:mt-20 sm:w-auto sm:flex-row">
           <a
             href="#register"
             className="w-full rounded-md bg-[#ff7a00] px-6 py-3 text-center font-gilroy text-sm font-black text-white shadow-[0_14px_28px_rgba(255,122,0,0.28)] transition hover:-translate-y-0.5 hover:bg-[#ff8d22] sm:w-auto sm:min-w-40"
           >
-            Secure Your Seat
+            Secure Your Seats
           </a>
           <a
             href="#speakers"
@@ -104,7 +104,7 @@ const Herosection = () => {
         </div>
 
         <p className="mt-6 max-w-xl text-center text-[11px] italic leading-6 text-white/90 sm:text-xs">
-          Limited to 200 executive participants - Early bird pricing ends January 31st
+          Limited to 30 Executive Participants
         </p>
 
         <div className="mt-12 w-full border-t border-white/15 pt-8 text-left sm:mt-14 lg:mt-16">

@@ -7,7 +7,7 @@ import { Mentaguidelogo1 } from '../../assets/images';
 import { AppContext } from '../../context/AppContext';
 import AdvertiserForm from '../AdvertiserForm';
 
-const Navbar = ({ activeIndex, showHeroLogo, hideFloatingNav = false }) => {
+const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -79,18 +79,19 @@ const Navbar = ({ activeIndex, showHeroLogo, hideFloatingNav = false }) => {
   // Prevent App.jsx's global Navbar from rendering a duplicate.
   if (isHomePage && activeIndex === undefined) return null;
 
-  // Hero (0) and later sections (4+) use dark text for visibility on white backgrounds.
-  // ProcessSection (index 5) has a dark background, so keep text white there.
+  // Hero (0), Performance (5), and Contact/Footer (6) use dark text for visibility on white/light backgrounds.
+  // What We Do (1), Who We Serve (2), Documentation (3), How We Work (4) use white text.
   let isDarkText = false;
   if (isHomePage) {
-    isDarkText = (activeIndex === 0 || activeIndex >= 4) && activeIndex !== 5;
+    isDarkText = (activeIndex === 0 || activeIndex === 5 || activeIndex === 6);
   } else if (isAboutPage) {
     isDarkText = false; // Pages like About, Services, Contact have dark backgrounds
   } else {
     isDarkText = true;
   }
 
-  const displayLogo = showHeroLogo !== undefined ? showHeroLogo : true;
+  // Logo hidden across every section of the homepage.
+  const displayLogo = isHomePage ? false : true;
 
   const navLinks = [
     { name: 'Home', href: '/', onClick: (e) => { e.preventDefault(); setIsOpen(false); navigate('/'); window.scrollTo(0, 0); } },
@@ -103,6 +104,7 @@ const Navbar = ({ activeIndex, showHeroLogo, hideFloatingNav = false }) => {
   // Split links into two columns for the layout shown in the screenshot
   const col1 = navLinks.slice(0, 4);
   const col2 = navLinks.slice(4);
+  const isHomeHeroSection = isHomePage && activeIndex === 0;
   const authControlText = isDarkText ? 'text-gray-800 border-gray-500 hover:bg-gray-100' : 'text-white border-white/70 hover:bg-white/10';
   const authControl = isLoggedIn ? (
     <div
@@ -207,7 +209,7 @@ const Navbar = ({ activeIndex, showHeroLogo, hideFloatingNav = false }) => {
           <div className={`${positionClass} ${location.pathname === '/about' ? 'top-[calc(100vh-0.0rem)] sm:top-[calc(100vh-1rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : isAboutPage ? 'top-[calc(100vh-8rem)] sm:top-[calc(100vh-6rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-8 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
             <div className={`flex flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
               {!isLoggedIn && (
-                <button onClick={openLogin} className="font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer">Login</button>
+                <button onClick={openLogin} className={`font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer ${isHomeHeroSection ? 'text-white' : ''}`}>Login</button>
               )}
               <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Advertiser Signup</button>
             </div>

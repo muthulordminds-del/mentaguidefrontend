@@ -3,10 +3,8 @@ import { FaCalendarAlt, FaLightbulb, FaUsers } from 'react-icons/fa';
 import { eventimg } from '../../assets/images';
 
 const stats = [
-  { value: '3', label: 'Days' },
-  { value: '8', label: 'Tracks' },
-  { value: '150+', label: 'Speakers' },
-  { value: '3500+', label: 'Attendees' },
+  { value: '1', label: 'Day' },
+  { value: '20+', label: 'Attendees' },
 ];
 
 const highlights = [
@@ -29,18 +27,18 @@ const InnovationSummitSection = () => {
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div className="max-w-2xl">
             <h2 className="font-gilroy text-[clamp(2rem,4.8vw,3.9rem)] font-black leading-[1.12] text-[#1c0d03]">
-              The Definitive Tech Innovation Summit
+              MentaGuide Business Horizons 2026
             </h2>
 
             <p className="mt-6 max-w-xl text-sm font-semibold leading-7 text-[#3f332b] sm:text-base">
-              Morbi auctor ipsum vel leo cursus, ac tempor augue tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla facilisi. Fusce vitae magna non nulla vulputate tincidunt.
+              A premier business forum that brings together entrepreneurs, business leaders, investors, policymakers, and industry experts to explore new opportunities, share innovative ideas, and shape the future of business. The event is designed to foster meaningful collaboration, inspire strategic thinking, and promote sustainable growth across industries.
             </p>
 
             <p className="mt-5 max-w-xl text-xs leading-7 text-[#6f6259] sm:text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.
+              Experience insightful keynote sessions, expert panel discussions, interactive workshops, and high-impact networking opportunities covering business strategy, finance, corporate governance, compliance, ESG, certifications, digital transformation, and global market expansion. Whether you are an emerging entrepreneur or an established enterprise, MentaGuide Business Horizons 2026 provides the knowledge, connections, and practical insights needed to thrive in an evolving business landscape.
             </p>
 
-            <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 lg:max-w-xl">
+            <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 lg:max-w-xl">
               {stats.map((item) => (
                 <div key={item.label} className="text-center sm:text-left">
                   <p className="font-gilroy text-4xl font-black leading-none text-[#ff7600] drop-shadow-[0_3px_0_rgba(255,118,0,0.18)] sm:text-5xl">
@@ -77,7 +75,7 @@ const InnovationSummitSection = () => {
               />
               <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-[#f47a00] px-4 py-2 text-xs font-black text-white shadow-[0_10px_24px_rgba(244,122,0,0.36)] sm:right-6 sm:top-6 sm:px-5 sm:py-3 sm:text-sm">
                 <FaCalendarAlt aria-hidden="true" />
-                <span>March 15-17, 2026</span>
+                <span>August 11, 2026</span>
               </div>
             </div>
 

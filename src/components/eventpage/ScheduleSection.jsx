@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { scheduleData } from '../../data/eventdata';
-import { FaCode, FaPaintBrush, FaBriefcase, FaRegClock, FaMapMarkerAlt, FaFilePdf, FaCalendarPlus } from 'react-icons/fa';
+import { FaRegClock, FaMapMarkerAlt, FaFilePdf, FaCalendarPlus } from 'react-icons/fa';
 
-const tracks = [
-  { id: 'dev', name: 'Development Track', icon: FaCode, color: 'bg-indigo-600', hoverColor: 'hover:bg-indigo-700' },
-  { id: 'design', name: 'Design Track', icon: FaPaintBrush, color: 'bg-[#f47a00]', hoverColor: 'hover:bg-[#d66a00]' },
-  { id: 'biz', name: 'Business Track', icon: FaBriefcase, color: 'bg-teal-600', hoverColor: 'hover:bg-teal-700' },
-];
 
 const ScheduleSection = () => {
   const [activeDay, setActiveDay] = useState(scheduleData[0].dayId);
@@ -29,7 +24,7 @@ const ScheduleSection = () => {
           <h2 className="font-gilroy text-4xl font-black text-[#1c0d03] sm:text-5xl">Schedule</h2>
           <div className="mx-auto mt-4 h-1 w-16 bg-[#f47a00]"></div>
           <p className="mx-auto mt-6 max-w-2xl font-gilroy-light text-sm font-semibold leading-6 text-[#5f524b] sm:text-base">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+            A thoughtfully curated five-hour program featuring expert keynote sessions on emerging business trends, strategic growth, corporate governance, sustainability, and innovation. The event concludes with a networking lunch and an interactive discussion, providing attendees with valuable opportunities to exchange ideas, build strategic partnerships, and explore future business opportunities.
           </p>
         </div>
 
@@ -47,19 +42,6 @@ const ScheduleSection = () => {
             >
               {day.label}
             </button>
-          ))}
-        </div>
-
-        {/* Track Legend */}
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-          {tracks.map((track) => (
-            <div
-              key={track.id}
-              className={`flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-gilroy text-sm font-bold text-white sm:text-base ${track.color}`}
-            >
-              <track.icon className="text-lg" />
-              {track.name}
-            </div>
           ))}
         </div>
 

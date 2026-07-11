@@ -2,11 +2,13 @@ import React, { useState, useContext, useRef } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
+import { advertiserpopupbanner } from '../assets/images';
 
-const AdvertiserForm = ({ onSuccess }) => {
+const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
   const { backendUrl } = useContext(AppContext);
   const formRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showIntro, setShowIntro] = useState(showIntroScreen);
   const [currentStep, setCurrentStep] = useState(1);
   const [industrySearch, setIndustrySearch] = useState('');
   const [isIndustryDropdownOpen, setIsIndustryDropdownOpen] = useState(false);
@@ -189,6 +191,33 @@ const AdvertiserForm = ({ onSuccess }) => {
       <h4 className="text-lg font-bold text-[#2d2f31] uppercase tracking-wider">{title}</h4>
     </div>
   );
+
+  if (showIntro) {
+    return (
+      <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-6 font-inter">
+        <img
+          src={advertiserpopupbanner}
+          alt="MentaGuide - Expand 360 Square"
+          className="w-full max-w-md rounded-xl shadow-lg"
+        />
+        <div className="flex flex-col gap-2">
+          <h3 className="text-xl sm:text-2xl font-gilroy font-bold text-[#2d2f31]">
+            Become an Advertiser Partner
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base max-w-lg">
+            Join MentaGuide's Expand 360 Square program and connect your brand with businesses accelerating global growth through strategy, compliance, and certification expertise.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setShowIntro(false)}
+          className="bg-[#a4d64f] text-[#202523] px-8 py-3 rounded-xl font-black uppercase tracking-widest transition-all shadow-[0_10px_25px_rgba(164,214,79,0.3)] hover:bg-[#b5e663] hover:-translate-y-1 cursor-pointer"
+        >
+          Get Started
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form ref={formRef} className="max-w-3xl mx-auto flex flex-col gap-6 font-inter" onSubmit={handleSubmit}>

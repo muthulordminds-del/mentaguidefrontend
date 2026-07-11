@@ -4,19 +4,19 @@ import { speakers1, speakers2, speakers3, speakers4, speakers5, speakers6 } from
 
 const featuredSpeakers = [
   {
-    name: 'Emily Rodriguez',
-    role: 'Chief Technology Officer',
-    company: 'InnovaTech Global',
+    name: 'Hari Basker',
+    role: 'Featured Speaker',
+    company: 'MentaGuide Business Horizons 2026',
     badge: 'Keynote Speaker',
-    session: 'The Future of AI in Business',
+    session: 'Shaping the Future of Business',
     image: speakers1,
   },
   {
-    name: 'Marcus Thompson',
-    role: 'VP of Product Strategy',
-    company: 'NextGen Solutions',
+    name: 'Migeal Anitha Christina',
+    role: 'Featured Speaker',
+    company: 'MentaGuide Business Horizons 2026',
     badge: 'Panel Speaker',
-    session: 'Digital Transformation Strategies',
+    session: 'Strategic Growth & Collaboration',
     image: speakers2,
   },
 ];

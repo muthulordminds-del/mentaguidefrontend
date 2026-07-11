@@ -26,10 +26,10 @@ const CallToActionSection = () => {
         
         {/* Header */}
         <h2 className="font-gilroy text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl drop-shadow-md">
-          Ready to Transform Your<br className="hidden sm:block" /> Professional Network?
+          Ready to Transform Your<br className="hidden sm:block" /> Business?
         </h2>
         <p className="mx-auto mt-6 max-w-3xl font-gilroy-light text-sm font-semibold leading-relaxed text-gray-200 sm:text-base md:text-lg">
-          Join industry leaders and innovators at the premier professional development conference. Secure your place among 5,000+ forward-thinking professionals from 25+ countries.
+          Join business leaders, entrepreneurs, investors, and industry experts for a day of strategic insights, meaningful networking, and practical solutions. Discover new opportunities, build valuable connections, and equip your business for sustainable growth.
         </p>
 
         {/* Stats Card */}
@@ -56,6 +56,9 @@ const CallToActionSection = () => {
           </h3>
           <p className="mx-auto mt-4 max-w-xl font-gilroy-light text-sm text-gray-300 sm:text-base">
             Secure your spot at the exclusive rate. Limited availability for premium networking sessions and workshop access.
+          </p>
+          <p className="mx-auto mt-3 max-w-xl font-gilroy text-sm font-black uppercase tracking-wide text-[#f47a00] sm:text-base">
+            Register Today and Take the Next Step Towards Business Excellence.
           </p>
 
           <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
