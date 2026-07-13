@@ -23,7 +23,7 @@ const App = () => {
   return (
     <div>
       <ToastContainer />
-      <Navbar hideFloatingNav={location.pathname === '/advertiser-signup'} />
+      <Navbar hideFloatingNav={location.pathname === '/event-registration'} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/service/:slug" element={<ServiceDetailsPage />} />
         <Route path="/contact" element={<Contactpage />} />
         <Route path="/event" element={<Eventpage />} />
-        <Route path="/advertiser-signup" element={<AdvertiserSignupPage />} />
+        <Route path="/event-registration" element={<AdvertiserSignupPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<Resetpassword />} />
         <Route path="/email-verify" element={<Emailverify />} />
