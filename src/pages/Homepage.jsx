@@ -131,7 +131,7 @@ const Homepage = () => {
                             <p className="text-[#6a6d67] text-sm sm:text-base mb-3 sm:mb-4">Complete your advertiser profile to get started.</p>
                             
                             <div className="w-full flex justify-center mb-3 sm:mb-4 rounded-xl overflow-hidden border border-gray-100">
-                                <img src={posterforgoogleform} alt="Advertiser Signup" className="h-[60vh] sm:h-[65vh] w-auto max-w-[85%] sm:max-w-[75%] object-contain" />
+                                <img src={posterforgoogleform} alt="Advertiser Signup" className="h-[68vh] sm:h-[62vh] w-auto max-w-[95%] sm:max-w-[90%] object-contain" />
                             </div>
                             
                             <button
