@@ -104,7 +104,7 @@ const Homepage = () => {
             >
                 <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
 
-                <div className="w-full snap-start overflow-hidden relative flex flex-col" style={{ height: '100dvh' }}><HeroSection /></div>
+                <div className="w-full snap-start overflow-hidden relative flex flex-col h-auto md:h-[100dvh]"><HeroSection /></div>
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><VisionSection /></div>
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><VerticalsSection /></div>
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><TrafficSourcesSection /></div>

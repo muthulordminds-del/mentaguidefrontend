@@ -20,18 +20,18 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="w-full h-[100dvh] md:h-full relative bg-white font-sans overflow-hidden flex flex-col md:block">
+    <section className="w-full md:h-full relative bg-white font-sans overflow-hidden">
       {/* Event Banner Image */}
-      <div className="w-full relative flex-1 min-h-0 md:flex-none">
+      <div className="w-full relative aspect-[16/9] md:aspect-auto">
         <img
           src={eventbannerhero}
           alt="Expand 360 Square - Transforming Businesses. Accelerating Growth"
-          className="w-full h-full md:h-auto block object-cover object-center md:max-h-none"
+          className="w-full h-full md:h-auto block object-contain object-center md:object-cover md:max-h-none"
         />
       </div>
 
       {/* Description text + Login/Advertiser Signup - same as desktop, now on mobile too */}
-      <div className="block absolute bottom-0 md:bottom-[22%] lg:bottom-[25%] xl:bottom-[27%] left-0 right-0 z-10 px-4 sm:px-6 md:px-8 lg:px-20 pb-4 sm:pb-5 md:pb-0">
+      <div className="block relative md:absolute bottom-0 md:bottom-[22%] lg:bottom-[25%] xl:bottom-[27%] left-0 right-0 z-10 px-4 sm:px-6 md:px-8 lg:px-20 py-3 sm:py-4 md:pb-0 md:pt-0">
         <div className="max-w-md lg:max-w-lg xl:max-w-xl">
           <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 mt-2 md:mt-0.5">
             {!isLoggedIn && (
