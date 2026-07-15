@@ -16,7 +16,7 @@ export const AppContextProvider = (props) => {
         return config;
     }, (error) => Promise.reject(error));
 
-    const backendUrl = (import.meta.env.VITE_BASE_URL || 'https://mentaguide.vercel.app/').replace(/\/$/, '')
+    const backendUrl = (import.meta.env.VITE_BASE_URL || 'https://mentaguide.vercel.app').replace(/\/$/, '')
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'))
     const [userData, setUserData] = useState(false)
 
