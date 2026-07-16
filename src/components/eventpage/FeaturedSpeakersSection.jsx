@@ -6,7 +6,7 @@ const featuredSpeakers = [
   {
     name: 'Hari Basker',
     role: 'Business Strategy & Growth Advisor',
-    company: 'MentaGuide Business Horizons 2026',
+    company: 'Expand 360²',
     badge: 'Keynote Speaker',
     session: 'Shaping the Future of Business',
     image: speakers1,
@@ -14,10 +14,18 @@ const featuredSpeakers = [
   {
     name: 'Migeal Anitha Christina',
     role: 'Corporate Governance & Compliance Expert',
-    company: 'MentaGuide Business Horizons 2026',
+    company: 'Expand 360²',
     badge: 'Panel Speaker',
     session: 'Strategic Growth & Collaboration',
     image: speakers2,
+  },
+  {
+    name: 'Uma Rani',
+    role: '25+ Years Industry Experience, College Principal',
+    company: 'Expand 360²',
+    badge: 'Panel Speaker',
+    session: 'Bridging Industry & Academia',
+    image: speakers3,
   },
 ];
 
@@ -85,7 +93,7 @@ const FeaturedSpeakersSection = () => {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {featuredSpeakers.map((speaker) => (
             <article
               key={speaker.name}
@@ -149,7 +157,7 @@ const FeaturedSpeakersSection = () => {
             "
           </div>
           <blockquote className="mx-auto max-w-3xl text-sm italic leading-7 text-[#2a211a]">
-            "MentaGuide Business Horizons brings together the right people and ideas to help businesses grow with clarity and confidence."
+            "Expand 360² brings together the right people and ideas to help businesses grow with clarity and confidence."
           </blockquote>
           <figcaption className="mt-7 text-center">
             <p className="font-gilroy text-sm font-black text-[#1d120b]">Emily Rodriguez</p>

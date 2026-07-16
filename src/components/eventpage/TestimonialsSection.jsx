@@ -4,19 +4,19 @@ import { FaStar, FaQuoteLeft, FaQuoteRight, FaChevronLeft, FaChevronRight } from
 const testimonials = [
   {
     id: 1,
-    name: 'Ryan Thompson',
+    name: 'Ramanathan',
     role: 'Business Analyst',
     text: 'A well-organized event with valuable insights on business strategy and growth. The networking opportunities were excellent.',
   },
   {
     id: 2,
-    name: 'Rachel Chen',
+    name: 'Kathiravan',
     role: 'Project Manager',
     text: 'Great sessions on digital transformation and market expansion. I came away with practical ideas I could apply immediately.',
   },
   {
     id: 3,
-    name: 'Jessica Martinez',
+    name: 'Iniyazh',
     role: 'Startup Founder',
     text: 'The speakers were knowledgeable and the discussions on governance and compliance were exactly what our team needed.',
   },
@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
           <h2 className="font-gilroy text-4xl font-black text-[#1c0d03] sm:text-5xl">Testimonials</h2>
           <div className="mx-auto mt-4 h-1 w-16 bg-[#f47a00]"></div>
           <p className="mx-auto mt-6 max-w-2xl font-gilroy-light text-sm font-semibold leading-6 text-[#5f524b] sm:text-base">
-            What past attendees have to say about MentaGuide Business Horizons.
+            What past attendees have to say about Expand 360².
           </p>
         </div>
 

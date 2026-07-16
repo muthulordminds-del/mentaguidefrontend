@@ -52,7 +52,7 @@ const Herosection = () => {
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
         <div className="mx-auto max-w-4xl pt-4 sm:pt-8 lg:pt-0">
           <h1 className="font-gilroy text-[clamp(1.75rem,5vw,3.5rem)] font-black leading-[1.08] text-white drop-shadow-[0_3px_0_rgba(9,65,145,0.85)]">
-            Expand 360²
+            Expand 360<sup className="text-[0.5em] align-super">²</sup>
             <span className="block">Discover. Connect. Grow.</span>
           </h1>
 
@@ -95,7 +95,7 @@ const Herosection = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:mt-12 sm:w-auto sm:flex-row">
+        <div className="mt-16 flex w-full flex-col items-center justify-center gap-4 sm:mt-20 sm:w-auto sm:flex-row">
           <button
             type="button"
             onClick={() => navigate('/event-registration')}

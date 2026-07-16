@@ -27,7 +27,7 @@ const InnovationSummitSection = () => {
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div className="max-w-2xl">
             <h2 className="font-gilroy text-[clamp(2rem,4.8vw,3.9rem)] font-black leading-[1.12] text-[#1c0d03]">
-              MentaGuide Business Horizons 2026
+              Expand 360<sup className="text-[0.5em] align-super">²</sup>
             </h2>
 
             <p className="mt-6 max-w-xl text-sm font-semibold leading-7 text-[#3f332b] sm:text-base">
@@ -35,7 +35,7 @@ const InnovationSummitSection = () => {
             </p>
 
             <p className="mt-5 max-w-xl text-xs leading-7 text-[#6f6259] sm:text-sm">
-              Experience insightful keynote sessions, expert panel discussions, interactive workshops, and high-impact networking opportunities covering business strategy, finance, corporate governance, compliance, ESG, certifications, digital transformation, and global market expansion. Whether you are an emerging entrepreneur or an established enterprise, MentaGuide Business Horizons 2026 provides the knowledge, connections, and practical insights needed to thrive in an evolving business landscape.
+              Experience insightful keynote sessions, expert panel discussions, interactive workshops, and high-impact networking opportunities covering business strategy, finance, corporate governance, compliance, ESG, certifications, digital transformation, and global market expansion. Whether you are an emerging entrepreneur or an established enterprise, Expand 360² provides the knowledge, connections, and practical insights needed to thrive in an evolving business landscape.
             </p>
 
             <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 lg:max-w-xl">
