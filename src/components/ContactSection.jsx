@@ -79,7 +79,7 @@ const ContactSection = () => {
             <h3 className="font-gilroy font-normal text-lg md:text-xl lg:text-2xl mb-4 text-white">Address:</h3>
 
             <div className="font-normal text-xs sm:text-sm lg:text-[1rem] leading-relaxed space-y-4 mb-7 md:mb-8 text-white">
-              <p>LordMinds Private Limited.<br />1/1, Manoj nagar, kannampalayam,<br />Sulur, Coimbatore - 641 402</p>
+              <p>Mentaguide<br />509-P, 3rd Floor, Red Rose Plaza,<br />D.B. Road, R.S. Puram, <br />Coimbatore - 641002</p>
             </div>
 
             {/* Badges */}

@@ -6,7 +6,7 @@ import ScheduleSection from '../components/eventpage/ScheduleSection'
 // import EarlyBirdSection from '../components/eventpage/EarlyBirdSection'
 // import EventLogosSection from '../components/eventpage/EventLogosSection'
 import TestimonialsSection from '../components/eventpage/TestimonialsSection'
-import CallToActionSection from '../components/eventpage/CallToActionSection'
+// import CallToActionSection from '../components/eventpage/CallToActionSection'
 // import EventImagesSection from '../components/eventpage/EventImagesSection'
 
 const Eventpage = () => {
@@ -22,7 +22,7 @@ const Eventpage = () => {
         <ScheduleSection/>
         {/* <EarlyBirdSection/> */}
         {/* <EventLogosSection/> */}
-        <CallToActionSection/>
+        {/* <CallToActionSection/> */}
         <TestimonialsSection/>
         {/* <EventImagesSection/> */}
     </div>

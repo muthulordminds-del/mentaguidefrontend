@@ -5,11 +5,9 @@ import { toast } from 'react-toastify';
 import { FaArrowRight } from 'react-icons/fa';
 import { Mentaguidelogo1 } from '../../assets/images';
 import { AppContext } from '../../context/AppContext';
-import AdvertiserForm from '../AdvertiserForm';
 
 const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,13 +19,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const handleAdvertiserClick = () => {
-    if (!userData) {
-      toast.error('To access this form, you must login your email.');
-    } else if (!userData.isAccountVerified) {
-      toast.error('To access this form, you must verify your email.');
-    } else {
-      setIsAdvertiserModalOpen(true);
-    }
+    navigate('/event-registration');
   };
 
   const sendVerificationEmail = async () => {
@@ -206,17 +198,17 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
 
           {/* Bottom Elements */}
           {!hideFloatingNav && (
-          <div className={`${positionClass} ${location.pathname === '/about' ? 'top-[calc(100vh-0.0rem)] sm:top-[calc(100vh-1rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : isAboutPage ? 'top-[calc(100vh-8rem)] sm:top-[calc(100vh-6rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-8 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
+          <div className={`${positionClass} ${location.pathname === '/about' ? 'top-[calc(100vh-0.0rem)] sm:top-[calc(100vh-1rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : location.pathname === '/event' ? 'top-[calc(100vh-4rem)] sm:top-[calc(100vh-3rem)] md:top-[calc(100vh-2.5rem)] lg:top-[calc(100vh-2rem)]' : isAboutPage ? 'top-[calc(100vh-8rem)] sm:top-[calc(100vh-6rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-8 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
             <div className={`${isHomeHeroSection ? 'hidden' : 'flex'} flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
               {!isLoggedIn && (
                 <button onClick={openLogin} className={`font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer ${isHomeHeroSection ? 'text-white' : ''}`}>Login</button>
               )}
-              <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Advertiser Signup</button>
+              <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Register Now</button>
             </div>
             <div className={`${location.pathname === '/event' ? 'hidden sm:flex' : 'flex'} flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 md:gap-2 lg:gap-3 text-[0.75rem] sm:text-[1rem] md:text-base lg:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isHomeHeroSection ? 'text-white translate-x-6 md:translate-x-10 lg:translate-x-85 -translate-y-2 md:-translate-y-3 lg:-translate-y-4' : isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
               <span className="hidden sm:inline opacity-50">|</span>
-              <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer whitespace-nowrap">mentaguide6@gmail.com</a>
+              <a href="mailto:info@mentaguide.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer whitespace-nowrap">info@mentaguide.com</a>
             </div>
           </div>
           )}
@@ -284,37 +276,18 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-base md:text-[1rem] lg:text-[1.1rem] font-bold">
               {authControl}
               <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-6 md:py-2.5 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs md:text-sm lg:text-base cursor-pointer">
-                Advertiser Signup
+                Register Now
               </button>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-[1rem] md:text-[1.1rem] font-bold font-gilroy tracking-wide mt-4 md:mt-0">
               <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
               <span className="hidden sm:inline opacity-50">|</span>
-              <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer">mentaguide6@gmail.com</a>
+              <a href="mailto:info@mentaguide.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer">info@mentaguide.com</a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Advertiser Signup Modal */}
-      {isAdvertiserModalOpen && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-4xl h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between p-4 border-b border-gray-100">
-              <h3 className="font-gilroy font-bold text-xl text-[#2d2f31]">Advertiser Signup</h3>
-              <button
-                onClick={() => setIsAdvertiserModalOpen(false)}
-                className="text-gray-400 hover:text-red-500 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-              </button>
-            </div>
-            <div className="flex-1 w-full bg-gray-50 p-6 md:p-8 overflow-y-auto scroll-smooth">
-              <AdvertiserForm onSuccess={() => setIsAdvertiserModalOpen(false)} />
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };

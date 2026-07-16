@@ -19,7 +19,7 @@ const AdvertiserSignupPage = () => {
         <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold">
           <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors">+91 7708505529</a>
           <span className="opacity-50">|</span>
-          <a href="mailto:mentaguide6@gmail.com" className="hover:text-[#a4d64f] transition-colors whitespace-nowrap">mentaguide6@gmail.com</a>
+          <a href="mailto:info@mentaguide.com" className="hover:text-[#a4d64f] transition-colors whitespace-nowrap">info@mentaguide.com</a>
         </div>
       </div>
 

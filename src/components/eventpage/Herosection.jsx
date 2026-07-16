@@ -5,8 +5,6 @@ import { eventherosectionbg } from '../../assets/images';
 
 const summitStart = new Date('2026-08-11T11:11:00+05:30').getTime();
 
-const sponsors = ['Alitalia', 'LEXMARK', 'signifyhealth', 'VIATRIS', 'ROHTO', 'chewy'];
-
 const getTimeLeft = () => {
   const distance = Math.max(summitStart - Date.now(), 0);
 
@@ -40,7 +38,7 @@ const Herosection = () => {
 
   return (
     <section
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#090704] px-4 py-24 text-white sm:px-6 lg:px-8"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#090704] px-4 pt-24 pb-40 text-white sm:px-6 sm:pb-44 lg:px-8 lg:pb-36"
       style={{
         backgroundImage: `url(${eventherosectionbg})`,
         backgroundSize: 'cover',
@@ -54,7 +52,7 @@ const Herosection = () => {
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
         <div className="mx-auto max-w-4xl pt-4 sm:pt-8 lg:pt-0">
           <h1 className="font-gilroy text-[clamp(1.75rem,5vw,3.5rem)] font-black leading-[1.08] text-white drop-shadow-[0_3px_0_rgba(9,65,145,0.85)]">
-            MentaGuide Business Horizons 2026
+            Expand 360²
             <span className="block">Discover. Connect. Grow.</span>
           </h1>
 
@@ -62,14 +60,21 @@ const Herosection = () => {
             An exclusive business forum bringing together entrepreneurs, industry experts, investors, and policymakers to exchange ideas, build strategic partnerships, and shape the future of sustainable business growth.
           </p>
 
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 text-xs font-bold sm:flex-row sm:gap-10 md:text-sm">
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 text-base font-bold sm:flex-row sm:gap-10 md:text-lg">
             <div className="flex items-center gap-3">
               <FaCalendarAlt className="text-[#ff7a00]" aria-hidden="true" />
               <span>August 11, 2026</span>
             </div>
             <div className="flex items-center gap-3">
               <FaMapMarkerAlt className="text-[#ff7a00]" aria-hidden="true" />
-              <span>Merlis Hotel, Coimbatore</span>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Merlis+Hotel%2C+61%2C+Avinashi+Road%2C+Goldwins%2C+Coimbatore%2C+Tamil+Nadu+-+641014"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-2 hover:underline hover:text-[#ff7a00] transition-colors"
+              >
+                Merlis Hotel, Coimbatore
+              </a>
             </div>
           </div>
         </div>
@@ -90,7 +95,7 @@ const Herosection = () => {
           </div>
         </div>
 
-        <div className="mt-16 flex w-full flex-col items-center justify-center gap-4 sm:mt-20 sm:w-auto sm:flex-row">
+        <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:mt-12 sm:w-auto sm:flex-row">
           <button
             type="button"
             onClick={() => navigate('/event-registration')}
@@ -117,22 +122,6 @@ const Herosection = () => {
         <p className="mt-6 max-w-xl text-center text-[11px] italic leading-6 text-white/90 sm:text-xs">
           Limited to 30 Executive Participants
         </p>
-
-        <div className="mt-12 w-full border-t border-white/15 pt-8 text-left sm:mt-14 lg:mt-16">
-          <p className="text-[10px] font-black uppercase tracking-wider text-white/85 sm:text-[11px]">
-            Proudly Supported By Industry Leaders
-          </p>
-          <div className="mt-7 grid grid-cols-2 items-center gap-x-8 gap-y-6 opacity-75 sm:grid-cols-3 md:grid-cols-6">
-            {sponsors.map((sponsor) => (
-                <span
-                  key={sponsor}
-                  className="text-center font-gilroy text-lg font-black text-white/80 grayscale sm:text-xl md:text-2xl"
-                >
-                {sponsor}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

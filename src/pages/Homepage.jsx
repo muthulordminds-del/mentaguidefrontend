@@ -95,7 +95,7 @@ const Homepage = () => {
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><TrafficSourcesSection /></div>
                 {/* <div className="w-full min-h-screen snap-start overflow-hidden relative"><AdvertisersSection /></div> */}
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><ProcessSection /></div>
-                <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><NumbersSection /></div>
+                {/* <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><NumbersSection /></div> */}
                 {/* <div className="w-full min-h-screen snap-start overflow-hidden relative"><TeamSection /></div> */}
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><ContactSection /></div>
             </div>

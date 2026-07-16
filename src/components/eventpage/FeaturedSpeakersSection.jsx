@@ -5,7 +5,7 @@ import { speakers1, speakers2, speakers3, speakers4, speakers5, speakers6 } from
 const featuredSpeakers = [
   {
     name: 'Hari Basker',
-    role: 'Featured Speaker',
+    role: 'Business Strategy & Growth Advisor',
     company: 'MentaGuide Business Horizons 2026',
     badge: 'Keynote Speaker',
     session: 'Shaping the Future of Business',
@@ -13,7 +13,7 @@ const featuredSpeakers = [
   },
   {
     name: 'Migeal Anitha Christina',
-    role: 'Featured Speaker',
+    role: 'Corporate Governance & Compliance Expert',
     company: 'MentaGuide Business Horizons 2026',
     badge: 'Panel Speaker',
     session: 'Strategic Growth & Collaboration',
@@ -81,7 +81,7 @@ const FeaturedSpeakersSection = () => {
           </h2>
           <span className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#ff7a00]" />
           <p className="mt-5 text-xs leading-6 text-[#4e443d] sm:text-sm">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+            Hear from business leaders and industry experts sharing insights on strategy, growth, and sustainable business transformation.
           </p>
         </div>
 
@@ -149,18 +149,11 @@ const FeaturedSpeakersSection = () => {
             "
           </div>
           <blockquote className="mx-auto max-w-3xl text-sm italic leading-7 text-[#2a211a]">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+            "MentaGuide Business Horizons brings together the right people and ideas to help businesses grow with clarity and confidence."
           </blockquote>
-          <figcaption className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <img
-              src={speakers1}
-              alt="Emily Rodriguez"
-              className="h-12 w-12 rounded-full border-2 border-[#ff7a00] object-cover"
-            />
-            <div className="text-center sm:text-left">
-              <p className="font-gilroy text-sm font-black text-[#1d120b]">Emily Rodriguez</p>
-              <p className="mt-1 text-[11px] text-[#7c7067]">Chief Technology Officer, InnovaTech Global</p>
-            </div>
+          <figcaption className="mt-7 text-center">
+            <p className="font-gilroy text-sm font-black text-[#1d120b]">Emily Rodriguez</p>
+            <p className="mt-1 text-[11px] text-[#7c7067]">Chief Technology Officer, InnovaTech Global</p>
           </figcaption>
         </figure>
       </div>
