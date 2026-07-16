@@ -89,14 +89,14 @@ const FeaturedSpeakersSection = () => {
           {featuredSpeakers.map((speaker) => (
             <article
               key={speaker.name}
-              className="grid overflow-hidden rounded-lg border border-[#ffc99d] bg-white shadow-[0_16px_36px_rgba(70,40,18,0.08)] sm:grid-cols-[190px_1fr]"
+              className="grid overflow-hidden rounded-lg border border-[#ffc99d] bg-white shadow-[0_16px_36px_rgba(70,40,18,0.08)]"
             >
-              <div className="relative min-h-[260px] sm:min-h-full">
+              {/* <div className="relative min-h-[260px] sm:min-h-full">
                 <img src={speaker.image} alt={speaker.name} className="h-full w-full object-cover" />
                 <div className="absolute bottom-4 right-4">
                   <SocialButtons />
                 </div>
-              </div>
+              </div> */}
               <div className="flex flex-col justify-center px-6 py-7">
                 <span className="w-fit rounded-full bg-[#ff7a00] px-4 py-2 text-[10px] font-black uppercase tracking-wide text-white">
                   {speaker.badge}
@@ -107,12 +107,12 @@ const FeaturedSpeakersSection = () => {
                 <p className="mt-5 text-sm font-black leading-6 text-[#1d120b]">
                   Session: "{speaker.session}"
                 </p>
-                <a
+                {/* <a
                   href="#profile"
                   className="mt-6 w-fit rounded-full bg-[#fff0e3] px-5 py-3 text-xs font-black text-[#ff7a00] transition hover:bg-[#ff7a00] hover:text-white"
                 >
                   View Profile
-                </a>
+                </a> */}
               </div>
             </article>
           ))}

@@ -1,6 +1,5 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import HeroSection from '../components/HeroSection';
 import VisionSection from '../components/VisionSection';
 import VerticalsSection from '../components/VerticalsSection';
@@ -11,9 +10,7 @@ import ProcessSection from '../components/ProcessSection';
 import TeamSection from '../components/TeamSection';
 import ContactSection from '../components/ContactSection';
 import Navbar from '../components/Shared/Navbar';
-import AdvertiserForm from '../components/AdvertiserForm';
 import { posterforgoogleform } from '../assets/images';
-import { AppContext } from '../context/AppContext';
 
 const Homepage = () => {
     const containerRef = useRef(null);
@@ -21,8 +18,6 @@ const Homepage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [showAdvertiserPopup, setShowAdvertiserPopup] = useState(false);
-    const [showIframeModal, setShowIframeModal] = useState(false);
-    const { isLoggedIn, userData } = useContext(AppContext);
 
     useEffect(() => {
         const hasSeen = sessionStorage.getItem('hasSeenAdvertiserPopup');
@@ -38,22 +33,12 @@ const Homepage = () => {
     }, [location.state, navigate]);
 
     const handlePopupAdvertiserClick = () => {
-        if (!isLoggedIn || !userData) {
-            toast.error("Please login first to access this form.");
-            setShowAdvertiserPopup(false);
-            navigate('/login');
-        } else if (!userData.isAccountVerified) {
-            toast.error("Please verify your email to access this form.");
-            setShowAdvertiserPopup(false);
-            navigate('/email-verify');
-        } else {
-            setShowIframeModal(true);
-        }
+        setShowAdvertiserPopup(false);
+        navigate('/event-registration');
     };
 
     const handleCloseAll = () => {
         setShowAdvertiserPopup(false);
-        setShowIframeModal(false);
     };
 
     const handleScroll = () => {
@@ -116,7 +101,7 @@ const Homepage = () => {
             </div>
 
             {/* Initial Advertiser Signup Popup */}
-            {showAdvertiserPopup && !showIframeModal && (
+            {showAdvertiserPopup && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
                     <div className="relative w-full max-w-md max-h-[90vh] overflow-y-auto hide-scrollbar bg-white rounded-2xl shadow-2xl p-4 sm:p-6 animate-in fade-in zoom-in duration-200 flex flex-col">
                         <button 
@@ -127,7 +112,7 @@ const Homepage = () => {
                         </button>
                         
                         <div className="text-center flex flex-col min-h-0">
-                            <h2 className="text-xl sm:text-2xl font-black text-[#222421] mb-1 sm:mb-2">Advertiser Signup</h2>
+                            <h2 className="text-xl sm:text-2xl font-black text-[#222421] mb-1 sm:mb-2">Register Now</h2>
                             <p className="text-[#6a6d67] text-sm sm:text-base mb-3 sm:mb-4">Complete your advertiser profile to get started.</p>
                             
                             <div className="w-full flex justify-center mb-3 sm:mb-4 rounded-xl overflow-hidden border border-gray-100">
@@ -141,34 +126,6 @@ const Homepage = () => {
                                 Register Now
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Google Form Iframe Modal */}
-            {showIframeModal && (
-                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-md p-4 sm:p-8">
-                    <div className="relative w-full max-w-4xl h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
-                        {/* Modal Header */}
-                        <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-100 bg-white">
-                            <div>
-                                <h3 className="text-xl font-black text-[#202523] uppercase tracking-wider">Advertiser Signup</h3>
-                                <p className="text-sm font-semibold text-gray-500 mt-1">Please complete the form below</p>
-                            </div>
-                            <button 
-                                onClick={handleCloseAll} 
-                                className="p-2 rounded-full hover:bg-gray-100 transition-colors group"
-                            >
-                                <svg className="w-6 h-6 text-gray-500 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        
-                        {/* Form Container */}
-                        <div className="flex-1 w-full bg-gray-50 p-6 md:p-8 overflow-y-auto">
-                            <AdvertiserForm onSuccess={handleCloseAll} />
                         </div>
                     </div>
                 </div>

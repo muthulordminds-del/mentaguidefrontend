@@ -1,22 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { eventbannerhero } from '../assets/images';
 import { AppContext } from '../context/AppContext';
-import { toast } from 'react-toastify';
-import AdvertiserForm from './AdvertiserForm';
 const HeroSection = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { userData, isLoggedIn } = useContext(AppContext);
+  const { isLoggedIn } = useContext(AppContext);
   const navigate = useNavigate();
 
   const handleAdvertiserClick = () => {
-    if (!userData) {
-      toast.error('To access this form, you must login');
-    } else if (!userData.isAccountVerified) {
-      toast.error('To access this form, you must verify your email.');
-    } else {
-      setIsModalOpen(true);
-    }
+    navigate('/event-registration');
   };
 
   return (
@@ -46,31 +37,11 @@ const HeroSection = () => {
               onClick={handleAdvertiserClick}
               className="bg-[#a4d64f] text-[#202523] px-4 py-2 sm:px-5 lg:px-6 lg:py-2.5 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-[0.65rem] sm:text-xs lg:text-sm cursor-pointer whitespace-nowrap"
             >
-              Advertiser Signup
+              Register Now
             </button>
           </div>
         </div>
       </div>
-
-      {/* Advertiser Signup Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 p-3 sm:p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-4xl h-[90vh] sm:h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-100">
-              <h3 className="font-gilroy font-bold text-lg sm:text-xl text-[#2d2f31]">Advertiser Signup</h3>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="text-gray-400 hover:text-red-500 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-              </button>
-            </div>
-            <div className="flex-1 w-full bg-gray-50 p-4 sm:p-6 md:p-8 overflow-y-auto scroll-smooth">
-              <AdvertiserForm onSuccess={() => setIsModalOpen(false)} showIntroScreen={true} />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

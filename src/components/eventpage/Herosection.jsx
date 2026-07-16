@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { eventherosectionbg } from '../../assets/images';
 
@@ -19,6 +20,7 @@ const getTimeLeft = () => {
 
 const Herosection = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
@@ -89,17 +91,26 @@ const Herosection = () => {
         </div>
 
         <div className="mt-16 flex w-full flex-col items-center justify-center gap-4 sm:mt-20 sm:w-auto sm:flex-row">
-          <a
-            href="#register"
+          <button
+            type="button"
+            onClick={() => navigate('/event-registration')}
             className="w-full rounded-md bg-[#ff7a00] px-6 py-3 text-center font-gilroy text-sm font-black text-white shadow-[0_14px_28px_rgba(255,122,0,0.28)] transition hover:-translate-y-0.5 hover:bg-[#ff8d22] sm:w-auto sm:min-w-40"
           >
             Secure Your Seats
-          </a>
+          </button>
           <a
             href="#speakers"
             className="w-full rounded-md border border-white/90 px-6 py-3 text-center font-gilroy text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-[#111] sm:w-auto sm:min-w-36"
           >
             View Speakers
+          </a>
+          <a
+            href="https://docs.google.com/forms/d/1LPv3U85IbwZEmBKiPm-MR_17FozT3-nehEQE65c0KKg/viewform?edit_requested=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full rounded-md border border-white/90 px-6 py-3 text-center font-gilroy text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-[#111] sm:w-auto sm:min-w-36"
+          >
+            Feedback
           </a>
         </div>
 
