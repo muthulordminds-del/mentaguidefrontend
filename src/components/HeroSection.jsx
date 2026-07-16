@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="w-full relative aspect-[16/9] md:aspect-auto">
         <img
           src={eventbannerhero}
-          alt="Expand 360 Square - Transforming Businesses. Accelerating Growth"
+          alt="Expand 360² - Transforming Businesses. Accelerating Growth"
           className="w-full h-full md:h-auto block object-contain object-center md:object-cover md:max-h-none"
         />
       </div>

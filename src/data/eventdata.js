@@ -1,7 +1,7 @@
 export const scheduleData = [
   {
     dayId: 'day1',
-    label: 'August 11, 2026',
+    label: 'August 11, 11 AM 2026',
     events: [
       {
         id: 1,

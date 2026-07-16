@@ -156,7 +156,7 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-6 font-inter">
         <img
           src={advertiserpopupbanner}
-          alt="MentaGuide - Expand 360 Square"
+          alt="MentaGuide - Expand 360²"
           className="w-full max-w-md rounded-xl shadow-lg"
         />
         <div className="flex flex-col gap-2">
@@ -164,7 +164,7 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
             Become an Advertiser Partner
           </h3>
           <p className="text-gray-600 text-sm sm:text-base max-w-lg">
-            Join MentaGuide's Expand 360 Square program and connect your brand with businesses accelerating global growth through strategy, compliance, and certification expertise.
+            Join MentaGuide's Expand 360² program and connect your brand with businesses accelerating global growth through strategy, compliance, and certification expertise.
           </p>
         </div>
         <button

@@ -27,7 +27,7 @@ const InnovationSummitSection = () => {
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div className="max-w-2xl">
             <h2 className="font-gilroy text-[clamp(2rem,4.8vw,3.9rem)] font-black leading-[1.12] text-[#1c0d03]">
-              Expand 360<sup className="text-[0.5em] align-super">²</sup>
+              Expand 360<sup className="relative align-baseline">²</sup>
             </h2>
 
             <p className="mt-6 max-w-xl text-sm font-semibold leading-7 text-[#3f332b] sm:text-base">
@@ -75,7 +75,7 @@ const InnovationSummitSection = () => {
               />
               <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-[#f47a00] px-4 py-2 text-xs font-black text-white shadow-[0_10px_24px_rgba(244,122,0,0.36)] sm:right-6 sm:top-6 sm:px-5 sm:py-3 sm:text-sm">
                 <FaCalendarAlt aria-hidden="true" />
-                <span>August 11, 2026</span>
+                <span>August 11, 11 AM 2026</span>
               </div>
             </div>
 

@@ -38,7 +38,7 @@ const Herosection = () => {
 
   return (
     <section
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#090704] px-4 pt-24 pb-40 text-white sm:px-6 sm:pb-44 lg:px-8 lg:pb-36"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#090704] px-4 pt-24 pb-48 text-white sm:px-6 sm:pb-52 lg:px-8 lg:pb-44"
       style={{
         backgroundImage: `url(${eventherosectionbg})`,
         backgroundSize: 'cover',
@@ -52,7 +52,7 @@ const Herosection = () => {
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
         <div className="mx-auto max-w-4xl pt-4 sm:pt-8 lg:pt-0">
           <h1 className="font-gilroy text-[clamp(1.75rem,5vw,3.5rem)] font-black leading-[1.08] text-white drop-shadow-[0_3px_0_rgba(9,65,145,0.85)]">
-            Expand 360<sup className="text-[0.5em] align-super">²</sup>
+            Expand 360<sup className="relative align-baseline">²</sup>
             <span className="block">Discover. Connect. Grow.</span>
           </h1>
 
@@ -63,7 +63,7 @@ const Herosection = () => {
           <div className="mt-9 flex flex-col items-center justify-center gap-4 text-base font-bold sm:flex-row sm:gap-10 md:text-lg">
             <div className="flex items-center gap-3">
               <FaCalendarAlt className="text-[#ff7a00]" aria-hidden="true" />
-              <span>August 11, 2026</span>
+              <span className="text-[#ff7a00] underline-offset-2 hover:underline hover:text-[#ff8d22] transition-colors">August 11, 11 AM 2026</span>
             </div>
             <div className="flex items-center gap-3">
               <FaMapMarkerAlt className="text-[#ff7a00]" aria-hidden="true" />
@@ -71,9 +71,9 @@ const Herosection = () => {
                 href="https://www.google.com/maps/search/?api=1&query=Merlis+Hotel%2C+61%2C+Avinashi+Road%2C+Goldwins%2C+Coimbatore%2C+Tamil+Nadu+-+641014"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline-offset-2 hover:underline hover:text-[#ff7a00] transition-colors"
+                className="text-[#ff7a00] underline-offset-2 hover:underline hover:text-[#ff8d22] transition-colors"
               >
-                Merlis Hotel, Coimbatore
+                Merlis Hotel, Sitra, Coimbatore
               </a>
             </div>
           </div>
@@ -95,7 +95,7 @@ const Herosection = () => {
           </div>
         </div>
 
-        <div className="mt-16 flex w-full flex-col items-center justify-center gap-4 sm:mt-20 sm:w-auto sm:flex-row">
+        <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 sm:mt-13 sm:w-auto sm:flex-row">
           <button
             type="button"
             onClick={() => navigate('/event-registration')}
