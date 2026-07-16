@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Herosection from '../components/eventpage/Herosection'
 import InnovationSummitSection from '../components/eventpage/InnovationSummitSection'
 import FeaturedSpeakersSection from '../components/eventpage/FeaturedSpeakersSection'
@@ -10,6 +10,10 @@ import CallToActionSection from '../components/eventpage/CallToActionSection'
 // import EventImagesSection from '../components/eventpage/EventImagesSection'
 
 const Eventpage = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
   return (
     <div>
         <Herosection/>

@@ -24,7 +24,10 @@ const AdvertiserSignupPage = () => {
       </div>
 
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 sm:p-8">
-        <AdvertiserForm onSuccess={() => navigate('/event')} />
+        <AdvertiserForm onSuccess={() => {
+          navigate('/event');
+          window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        }} />
       </div>
     </div>
   );
