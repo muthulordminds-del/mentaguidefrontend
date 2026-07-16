@@ -24,7 +24,7 @@ const HeroSection = () => {
       {/* Description text + Login/Advertiser Signup - same as desktop, now on mobile too */}
       <div className="block relative md:absolute bottom-0 md:bottom-[22%] lg:bottom-[25%] xl:bottom-[27%] left-0 right-0 z-10 px-4 sm:px-6 md:px-8 lg:px-20 py-3 sm:py-4 md:pb-0 md:pt-0">
         <div className="max-w-md lg:max-w-lg xl:max-w-xl">
-          <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 mt-2 md:mt-0.5">
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 mt-2 md:mt-0.5 md:-translate-y-[60px] 2xl:translate-y-0">
             {!isLoggedIn && (
               <button
                 onClick={() => navigate('/login')}
