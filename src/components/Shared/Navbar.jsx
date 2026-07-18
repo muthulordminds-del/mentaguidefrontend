@@ -146,7 +146,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
               <button
                 onClick={toggleMenu}
                 aria-label="Toggle Menu"
-                className="group p-2 -ml-2 mt-1 sm:mt-1.5 md:mt-3 transition-all duration-300 pointer-events-auto flex flex-col gap-1.5"
+                className="group p-2 -ml-2 mt-1 sm:mt-1.5 md:mt-3 transition-all duration-300 pointer-events-auto flex md:hidden flex-col gap-1.5"
               >
                 <div className={`w-7 sm:w-8 h-[3px] sm:h-1 md:w-10 md:h-1 transition-colors duration-300 ${isDarkText ? 'bg-[#2b2b2b]' : 'bg-white'}`}></div>
                 <div className={`w-7 sm:w-8 h-[3px] sm:h-1 md:w-6 md:h-1 transition-colors duration-300 ${isDarkText ? 'bg-[#2b2b2b]' : 'bg-white'}`}></div>

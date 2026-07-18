@@ -3,6 +3,8 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 import { advertiserpopupbanner } from '../assets/images';
+import PaymentStep from './PaymentStep';
+import PaymentReceipt from './PaymentReceipt';
 
 const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
   const { backendUrl } = useContext(AppContext);
@@ -11,6 +13,8 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
   const [showIntro, setShowIntro] = useState(showIntroScreen);
   const [currentStep, setCurrentStep] = useState(1);
   const [customIndustry, setCustomIndustry] = useState('');
+  const [submittedAdvertiser, setSubmittedAdvertiser] = useState(null); // { advertiserId, fullName, email, whatsapp }
+  const [paymentReceipt, setPaymentReceipt] = useState(null); // set after successful payment, shows PaymentReceipt step
   const [formData, setFormData] = useState({
     fullName: '',
     jobTitle: '',
@@ -101,9 +105,16 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
     try {
       const { data } = await axios.post(backendUrl + '/api/advertiser/submit', submitData);
       if (data.success) {
-        toast.success(data.message || 'Registration submitted successfully!');
-        if (onSuccess) {
-          onSuccess();
+        toast.success('Details saved! Now complete your payment.');
+        setSubmittedAdvertiser({
+          advertiserId: data.advertiserId,
+          fullName: formData.fullName,
+          email: formData.email,
+          whatsapp: formData.whatsapp,
+        });
+        setCurrentStep(3); // move to payment step
+        if (formRef.current) {
+          formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       } else {
         toast.error(data.message || 'Error submitting form');
@@ -113,6 +124,23 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
       toast.error('Error connecting to the server');
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handlePaymentSuccess = (paymentResult) => {
+    setPaymentReceipt({
+      fullName: formData.fullName,
+      email: formData.email,
+      paymentType: paymentResult.paymentType,
+      amountPaid: paymentResult.paymentType === 'full'
+        ? paymentResult.totalAmount
+        : paymentResult.partialAmount,
+      balanceAmount: paymentResult.balanceAmount,
+      paymentStatus: paymentResult.paymentStatus,
+      razorpayPaymentId: paymentResult.razorpayPaymentId,
+    });
+    if (onSuccess) {
+      onSuccess();
     }
   };
 
@@ -174,6 +202,22 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
         >
           Get Started
         </button>
+      </div>
+    );
+  }
+
+  if (currentStep === 3 && paymentReceipt) {
+    return (
+      <div ref={formRef}>
+        <PaymentReceipt receipt={paymentReceipt} />
+      </div>
+    );
+  }
+
+  if (currentStep === 3 && submittedAdvertiser) {
+    return (
+      <div ref={formRef}>
+        <PaymentStep advertiser={submittedAdvertiser} onPaymentSuccess={handlePaymentSuccess} />
       </div>
     );
   }
