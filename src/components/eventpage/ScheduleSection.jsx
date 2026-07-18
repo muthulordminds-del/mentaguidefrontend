@@ -1,7 +1,53 @@
 import React, { useState } from 'react';
 import { scheduleData } from '../../data/eventdata';
 import { FaRegClock, FaMapMarkerAlt, FaFilePdf, FaCalendarPlus } from 'react-icons/fa';
+import agendaPdf from '../../assets/images/Mentaguide event Agenda.pdf?url';
 
+// Event details used for the "Add to Calendar" (.ics) file
+const EVENT_TITLE = 'Mentaguide Expand 360\u00B2';
+const EVENT_LOCATION = 'Merlis Hotel, Coimbatore';
+const EVENT_DESCRIPTION = 'Join us for Mentaguide Expand 360\u00B2 \u2014 keynote sessions, workshops and networking. Full agenda: https://mentaguide.com/event';
+// 11th August 2026, 10:30 AM - 3:30 PM IST (matches the schedule above)
+const EVENT_START = '20260811T103000';
+const EVENT_END = '20260811T153000';
+
+const handleDownloadPdf = () => {
+  const link = document.createElement('a');
+  link.href = agendaPdf;
+  link.download = 'Mentaguide Event Agenda.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+const handleAddToCalendar = () => {
+  const icsContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Mentaguide//Event//EN',
+    'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    `UID:mentaguide-expand360-${Date.now()}@mentaguide.com`,
+    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+    `DTSTART;TZID=Asia/Kolkata:${EVENT_START}`,
+    `DTEND;TZID=Asia/Kolkata:${EVENT_END}`,
+    `SUMMARY:${EVENT_TITLE}`,
+    `DESCRIPTION:${EVENT_DESCRIPTION}`,
+    `LOCATION:${EVENT_LOCATION}`,
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ].join('\r\n');
+
+  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'Mentaguide-Expand-360.ics';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+};
 
 const ScheduleSection = () => {
   const [activeDay, setActiveDay] = useState(scheduleData[0].dayId);
@@ -18,7 +64,7 @@ const ScheduleSection = () => {
   }, {}) || {};
 
   return (
-    <section className="w-full bg-[#faf9f8] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section id="agenda" className="w-full bg-[#faf9f8] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <h2 className="font-gilroy text-4xl font-black text-[#1c0d03] sm:text-5xl">Schedule</h2>
@@ -134,10 +180,18 @@ const ScheduleSection = () => {
             Download the full agenda as PDF or add events to your calendar
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="flex items-center gap-2 rounded-full bg-[#f47a00] px-8 py-3.5 font-gilroy text-sm font-black uppercase tracking-wide text-white transition hover:-translate-y-0.5 hover:bg-[#d66a00]">
+            <button
+              type="button"
+              onClick={handleDownloadPdf}
+              className="flex items-center gap-2 rounded-full bg-[#f47a00] px-8 py-3.5 font-gilroy text-sm font-black uppercase tracking-wide text-white transition hover:-translate-y-0.5 hover:bg-[#d66a00]"
+            >
               <FaFilePdf /> Download PDF
             </button>
-            <button className="flex items-center gap-2 rounded-full border-2 border-[#f47a00] bg-white px-8 py-3.5 font-gilroy text-sm font-black uppercase tracking-wide text-[#f47a00] transition hover:-translate-y-0.5 hover:bg-[#f47a00] hover:text-white">
+            <button
+              type="button"
+              onClick={handleAddToCalendar}
+              className="flex items-center gap-2 rounded-full border-2 border-[#f47a00] bg-white px-8 py-3.5 font-gilroy text-sm font-black uppercase tracking-wide text-[#f47a00] transition hover:-translate-y-0.5 hover:bg-[#f47a00] hover:text-white"
+            >
               <FaCalendarPlus /> Add to Calendar
             </button>
           </div>
