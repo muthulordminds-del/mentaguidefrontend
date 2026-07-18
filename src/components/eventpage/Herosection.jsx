@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { eventherosectionbg } from '../../assets/images';
+import { AppContext } from '../../context/AppContext';
 
 const summitStart = new Date('2026-08-11T11:11:00+05:30').getTime();
 
@@ -19,6 +20,7 @@ const getTimeLeft = () => {
 const Herosection = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft);
   const navigate = useNavigate();
+  const { isLoggedIn } = useContext(AppContext);
 
   useEffect(() => {
     const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
@@ -38,7 +40,7 @@ const Herosection = () => {
 
   return (
     <section
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#090704] px-4 pt-24 pb-48 text-white sm:px-6 sm:pb-52 lg:px-8 lg:pb-44"
+      className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#090704] px-4 pt-24 pb-6 text-white sm:px-6 lg:px-8"
       style={{
         backgroundImage: `url(${eventherosectionbg})`,
         backgroundSize: 'cover',
@@ -49,7 +51,7 @@ const Herosection = () => {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,6,3,0.95)_0%,rgba(7,6,3,0.78)_32%,rgba(7,6,3,0.54)_58%,rgba(7,6,3,0.9)_100%)]" />
       <div className="absolute inset-0 bg-black/30" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center text-center">
         <div className="mx-auto max-w-4xl pt-4 sm:pt-8 lg:pt-0">
           <h1 className="font-gilroy text-[clamp(1.75rem,5vw,3.5rem)] font-black leading-[1.08] text-white drop-shadow-[0_3px_0_rgba(9,65,145,0.85)]">
             Expand 360<sup className="relative align-baseline">²</sup>
@@ -122,6 +124,34 @@ const Herosection = () => {
         <p className="mt-6 max-w-xl text-center text-[11px] italic leading-6 text-white/90 sm:text-xs">
           Limited to 30 Executive Participants
         </p>
+      </div>
+
+      {/* Event-only footer: stays in the hero's document flow at every zoom level. */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 pt-5 text-white md:flex-row md:items-end md:gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          {!isLoggedIn && (
+            <button
+              type="button"
+              onClick={() => navigate('/login')}
+              className="font-gilroy text-sm font-bold uppercase tracking-widest transition-colors hover:text-[#a4d64f] sm:text-base"
+            >
+              Login
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => navigate('/event-registration')}
+            className="rounded-full bg-[#a4d64f] px-5 py-2 text-xs font-black uppercase tracking-widest text-[#202523] shadow-[0_4px_14px_rgba(164,214,79,0.3)] transition hover:-translate-y-1 hover:bg-[#b5e663] sm:px-6 sm:py-2.5"
+          >
+            Register Now
+          </button>
+        </div>
+
+        <div className="flex flex-col items-center gap-1 text-center font-gilroy text-sm font-bold tracking-wide sm:flex-row sm:gap-3 sm:text-base md:items-end md:text-right">
+          <a href="tel:+917708505529" className="transition-colors hover:text-[#a4d64f]">+91 7708505529</a>
+          <span className="hidden opacity-50 sm:inline">|</span>
+          <a href="mailto:info@mentaguide.com" className="transition-colors hover:text-[#a4d64f]">info@mentaguide.com</a>
+        </div>
       </div>
     </section>
   );

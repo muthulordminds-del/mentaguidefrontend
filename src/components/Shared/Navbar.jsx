@@ -13,7 +13,8 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
   const location = useLocation();
   const { userData, backendUrl, setUserData, setIsLoggedIn, isLoggedIn } = useContext(AppContext);
 
-  const isAboutPage = location.pathname === '/about' || location.pathname === '/services' || location.pathname === '/contact' || location.pathname === '/event' || location.pathname.startsWith('/service/');
+  const isEventPage = location.pathname === '/event';
+  const isAboutPage = location.pathname === '/about' || location.pathname === '/services' || location.pathname === '/contact' || isEventPage || location.pathname.startsWith('/service/');
   const positionClass = isAboutPage ? 'absolute' : 'fixed';
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -146,7 +147,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
               <button
                 onClick={toggleMenu}
                 aria-label="Toggle Menu"
-                className="group p-2 -ml-2 mt-1 sm:mt-1.5 md:mt-3 transition-all duration-300 pointer-events-auto flex md:hidden flex-col gap-1.5"
+                className="tablet-nav-toggle group p-2 -ml-2 mt-1 sm:mt-1.5 md:mt-3 transition-all duration-300 pointer-events-auto flex xl:hidden flex-col gap-1.5"
               >
                 <div className={`w-7 sm:w-8 h-[3px] sm:h-1 md:w-10 md:h-1 transition-colors duration-300 ${isDarkText ? 'bg-[#2b2b2b]' : 'bg-white'}`}></div>
                 <div className={`w-7 sm:w-8 h-[3px] sm:h-1 md:w-6 md:h-1 transition-colors duration-300 ${isDarkText ? 'bg-[#2b2b2b]' : 'bg-white'}`}></div>
@@ -171,8 +172,8 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
 
           {/* Left Vertical (Countries) */}
           {!hideFloatingNav && (
-          <div className={`${positionClass} left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
-            <div className={`-rotate-90 flex items-center gap-3 text-[0.85rem] lg:text-[0.9rem] tracking-widest font-bold font-gilroy uppercase whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
+          <div className={`desktop-side-nav ${positionClass} left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden xl:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
+            <div className={`-rotate-90 flex items-center gap-3 ${isHomeHeroSection ? 'text-[0.85rem]' : 'text-[0.85rem] lg:text-[0.9rem]'} tracking-widest font-bold font-gilroy uppercase whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Home</a> <span className="font-light opacity-50">|</span>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/about'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/services'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Service</a> <span className="font-light opacity-50">|</span>
@@ -185,8 +186,8 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
 
           {/* Right Vertical (Socials) */}
           {!hideFloatingNav && (
-          <div className={`${positionClass} right-8 md:right-10 lg:right-12 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
-            <div className={`rotate-90 flex items-center gap-6 text-[0.85rem] lg:text-[1rem] font-bold font-gilroy tracking-wider whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
+          <div className={`desktop-side-nav ${positionClass} right-8 md:right-10 lg:right-12 top-1/2 -translate-y-1/2 hidden xl:flex items-center justify-center z-50 w-0 pointer-events-auto`}>
+            <div className={`rotate-90 flex items-center gap-6 ${isHomeHeroSection ? 'text-[0.85rem]' : 'text-[0.85rem] lg:text-[1rem]'} font-bold font-gilroy tracking-wider whitespace-nowrap transition-colors duration-300 ${isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="https://www.facebook.com/profile.php?id=61589020599973&sk=about" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors lowercase">facebook</a>
               <a href="https://www.instagram.com/mentaguide/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors lowercase">Instagram</a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors lowercase">x</a>
@@ -197,15 +198,15 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
           )}
 
           {/* Bottom Elements */}
-          {!hideFloatingNav && (
-          <div className={`${positionClass} ${location.pathname === '/about' ? 'top-[calc(100vh-0.0rem)] sm:top-[calc(100vh-1rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : location.pathname === '/event' ? 'top-[calc(100vh-2.5rem)] sm:top-[calc(100vh-1.75rem)] md:top-[calc(100vh-1.25rem)] lg:top-[calc(100vh-1rem)]' : isAboutPage ? 'top-[calc(100vh-8rem)] sm:top-[calc(100vh-6rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-8 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
+          {!hideFloatingNav && location.pathname !== '/event' && (
+          <div className={`${positionClass} ${location.pathname === '/about' ? 'top-[calc(100vh-0.0rem)] sm:top-[calc(100vh-1rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : isAboutPage ? 'top-[calc(100vh-8rem)] sm:top-[calc(100vh-6rem)] md:top-[calc(100vh-4rem)] lg:top-[calc(100vh-4.5rem)]' : 'bottom-8 md:bottom-4 lg:bottom-6'} left-0 right-0 flex flex-col md:flex-row justify-between items-center md:items-end z-50 px-6 md:px-8 lg:px-20 pointer-events-auto`}>
             <div className={`${isHomeHeroSection ? 'hidden' : 'flex'} flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-[1.25rem] font-bold transition-colors duration-300 pl-0 lg:pl-32 xl:pl-48 ${isDarkText ? 'text-black' : 'text-white'}`}>
               {!isLoggedIn && (
                 <button onClick={openLogin} className={`font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer ${isHomeHeroSection ? 'text-white' : ''}`}>Login</button>
               )}
               <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Register Now</button>
             </div>
-            <div className={`${location.pathname === '/event' ? 'hidden sm:flex' : 'flex'} flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 md:gap-2 lg:gap-3 text-[0.75rem] sm:text-[1rem] md:text-base lg:text-[1.15rem] font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isHomeHeroSection ? 'text-white translate-x-6 md:translate-x-10 lg:translate-x-85 -translate-y-2 md:-translate-y-3 lg:-translate-y-4' : isDarkText ? 'text-black' : 'text-white'}`}>
+            <div className={`${location.pathname === '/event' ? 'hidden sm:flex' : 'flex'} flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 md:gap-2 ${isHomeHeroSection ? 'text-base' : 'lg:gap-3 text-[0.75rem] sm:text-[1rem] md:text-base lg:text-[1.15rem]'} font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isHomeHeroSection ? 'text-white translate-x-6 md:translate-x-10 lg:translate-x-85 -translate-y-2 md:-translate-y-3 lg:-translate-y-4' : isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
               <span className="hidden sm:inline opacity-50">|</span>
               <a href="mailto:info@mentaguide.com" className="hover:text-[#a4d64f] transition-colors cursor-pointer whitespace-nowrap">info@mentaguide.com</a>
@@ -252,7 +253,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
           </div>
 
           {/* Menu Overlay Sidebars (Inside the white overlay) */}
-          <div className="fixed left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0">
+          <div className="desktop-side-nav fixed left-6 md:left-8 lg:left-10 top-1/2 -translate-y-1/2 hidden xl:flex items-center justify-center z-50 w-0">
             <div className="-rotate-90 flex items-center gap-3 text-[0.85rem] lg:text-[0.9rem] tracking-widest font-bold font-gilroy uppercase whitespace-nowrap text-black">
               <a href="/" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Home</a> <span className="font-light opacity-50">|</span>
               <a href="/about" onClick={(e) => { e.preventDefault(); setIsOpen(false); navigate('/about'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
@@ -261,7 +262,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
             </div>
           </div>
 
-          <div className="fixed right-8 md:right-10 lg:right-12 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-50 w-0">
+          <div className="desktop-side-nav fixed right-8 md:right-10 lg:right-12 top-1/2 -translate-y-1/2 hidden xl:flex items-center justify-center z-50 w-0">
             <div className="rotate-90 flex items-center gap-6 text-[0.85rem] lg:text-[1rem] font-bold font-gilroy tracking-wider whitespace-nowrap text-black">
               <a href="https://www.facebook.com/profile.php?id=61589020599973&sk=about" target="_blank" rel="noopener noreferrer" className="hover:text-[#a4d64f] transition-colors lowercase">facebook</a>
               <a href="https://www.instagram.com/mentaguide/" target="_blank" rel="noopener noreferrer" className="hover:text-[#a4d64f] transition-colors lowercase">Instagram</a>

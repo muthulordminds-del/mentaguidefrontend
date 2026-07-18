@@ -43,19 +43,26 @@ const Homepage = () => {
 
     const handleScroll = () => {
         if (!containerRef.current) return;
-        const { scrollTop, clientHeight } = containerRef.current;
+        const { scrollTop } = containerRef.current;
+        const slides = Array.from(containerRef.current.querySelectorAll(':scope > div'));
+        const nearestIndex = slides.reduce((closestIndex, slide, index) => (
+            Math.abs(slide.offsetTop - scrollTop) < Math.abs(slides[closestIndex].offsetTop - scrollTop)
+                ? index
+                : closestIndex
+        ), 0);
 
-        // Add small buffer to perfectly snap before updating dot index
-        const scrollIndex = Math.round(scrollTop / clientHeight);
-        if (scrollIndex !== activeIndex && scrollIndex >= 0 && scrollIndex < 7) {
-            setActiveIndex(scrollIndex);
+        if (nearestIndex !== activeIndex) {
+            setActiveIndex(nearestIndex);
         }
     };
 
     const scrollTo = (index) => {
         if (!containerRef.current) return;
+        const slides = Array.from(containerRef.current.querySelectorAll(':scope > div'));
+        const targetSlide = slides[index];
+        if (!targetSlide) return;
         containerRef.current.scrollTo({
-            top: index * window.innerHeight,
+            top: targetSlide.offsetTop,
             behavior: 'smooth'
         });
     };
@@ -89,7 +96,7 @@ const Homepage = () => {
             >
                 <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
 
-                <div className="w-full snap-start overflow-hidden relative flex flex-col h-auto xl:h-[100dvh]"><HeroSection /></div>
+                <div className="relative flex h-auto w-full snap-start flex-col overflow-hidden xl:h-[100dvh]"><HeroSection /></div>
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><VisionSection /></div>
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><VerticalsSection /></div>
                 <div className="w-full min-h-screen snap-start overflow-hidden relative" style={{ height: '100dvh' }}><TrafficSourcesSection /></div>

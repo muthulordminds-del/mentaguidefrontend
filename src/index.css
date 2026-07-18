@@ -28,6 +28,17 @@
   20%, 40% { transform: rotate(5deg); }
 }
 
+/* Nest Hub Max's 1280×800 viewport is too short for the desktop side rails. */
+@media (min-width: 1280px) and (max-width: 1300px) and (max-height: 850px) {
+  .tablet-nav-toggle {
+    display: flex !important;
+  }
+
+  .desktop-side-nav {
+    display: none !important;
+  }
+}
+
 .animate-ring {
   animation: ring 1.5s ease-in-out infinite;
 }
