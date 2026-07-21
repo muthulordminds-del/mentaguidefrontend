@@ -128,6 +128,12 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
   };
 
   const handlePaymentSuccess = (paymentResult) => {
+    // NOTE: onSuccess() intentionally NOT called here anymore.
+    // Calling it immediately used to redirect straight to /event
+    // before the user ever saw their payment receipt. Now the
+    // receipt (currentStep === 3 && paymentReceipt block below)
+    // is shown first; onSuccess is reserved for a future explicit
+    // "Continue" / "Back to Event" action on the receipt itself.
     setPaymentReceipt({
       fullName: formData.fullName,
       email: formData.email,
@@ -139,9 +145,6 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
       paymentStatus: paymentResult.paymentStatus,
       razorpayPaymentId: paymentResult.razorpayPaymentId,
     });
-    if (onSuccess) {
-      onSuccess();
-    }
   };
 
   const validateStep = () => {

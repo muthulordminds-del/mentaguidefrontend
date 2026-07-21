@@ -14,16 +14,18 @@ import ContactSection from './components/ContactSection'
 import Eventpage from './pages/Eventpage'
 import ServiceDetailsPage from './pages/ServiceDetailsPage'
 import AdvertiserSignupPage from './pages/AdvertiserSignupPage'
+import CompletePayment from './pages/CompletePayment'
 
 const App = () => {
   const location = useLocation()
   const hideFooterRoutes = ['/', '/login', '/reset-password', '/email-verify']
   const shouldShowFooter = !hideFooterRoutes.includes(location.pathname)
+  const hideFloating = location.pathname === '/event-registration' || location.pathname.startsWith('/complete-payment')
 
   return (
     <div>
       <ToastContainer />
-      <Navbar hideFloatingNav={location.pathname === '/event-registration'} />
+      <Navbar hideFloatingNav={hideFloating} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
@@ -35,6 +37,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<Resetpassword />} />
         <Route path="/email-verify" element={<Emailverify />} />
+        <Route path="/complete-payment/:id" element={<CompletePayment />} />
       </Routes>
       {shouldShowFooter && <ContactSection />}
     </div>

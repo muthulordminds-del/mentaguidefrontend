@@ -538,7 +538,7 @@ export const serviceHelpInfo = {
   subtitle: 'Contact our experts for business consulting and advisory support.',
   contacts: [
     { type: 'Phone', value: '+91 7708505529', href: 'tel:+917708505529' },
-    { type: 'Email', value: 'mentaguide6@gmail.com', href: 'mailto:mentaguide6@gmail.com' },
-    { type: 'Office', value: 'Tiruppur, India', href: '' }
+    { type: 'Email', value: 'info@mentaguide.com', href: 'mailto:info@mentaguide.com' },
+    { type: 'Office', value: 'Coimbatore, India', href: '' }
   ]
 }
