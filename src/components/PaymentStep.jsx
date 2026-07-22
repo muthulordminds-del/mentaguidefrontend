@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 
-const TOTAL_FEE = 2;
-const PARTIAL_FEE = 1;
+const TOTAL_FEE = 3500;
+const PARTIAL_FEE = 1000;
 const BALANCE_FEE = TOTAL_FEE - PARTIAL_FEE;
 
 const loadRazorpayScript = () => {
