@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { speakers1, speakers2, speakers3, speakers4, speakers5, speakers6 } from '../../assets/images';
+import haribaskar from '../../assets/images/haribaskar.png';
+import umarani from '../../assets/images/umarani.png';
 
 const featuredSpeakers = [
   {
@@ -9,15 +11,7 @@ const featuredSpeakers = [
     company: 'Expand 360²',
     badge: 'Keynote Speaker',
     session: 'Shaping the Future of Business',
-    image: speakers1,
-  },
-  {
-    name: 'Migeal Anitha Christina',
-    role: 'Corporate Governance & Compliance Expert',
-    company: 'Expand 360²',
-    badge: 'Panel Speaker',
-    session: 'Strategic Growth & Collaboration',
-    image: speakers2,
+    image: haribaskar,
   },
   {
     name: 'Uma Rani',
@@ -25,7 +19,7 @@ const featuredSpeakers = [
     company: 'Expand 360²',
     badge: 'Panel Speaker',
     session: 'Bridging Industry & Academia',
-    image: speakers3,
+    image: umarani,
   },
 ];
 
@@ -93,18 +87,18 @@ const FeaturedSpeakersSection = () => {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {featuredSpeakers.map((speaker) => (
             <article
               key={speaker.name}
-              className="grid overflow-hidden rounded-lg border border-[#ffc99d] bg-white shadow-[0_16px_36px_rgba(70,40,18,0.08)]"
+              className="grid overflow-hidden rounded-lg border border-[#ffc99d] bg-white shadow-[0_16px_36px_rgba(70,40,18,0.08)] sm:grid-cols-[200px_1fr]"
             >
-              {/* <div className="relative min-h-[260px] sm:min-h-full">
+              <div className="relative h-[220px] self-start">
                 <img src={speaker.image} alt={speaker.name} className="h-full w-full object-cover" />
-                <div className="absolute bottom-4 right-4">
+                <div className="absolute bottom-3 right-3">
                   <SocialButtons />
                 </div>
-              </div> */}
+              </div>
               <div className="flex flex-col justify-center px-6 py-7">
                 <span className="w-fit rounded-full bg-[#ff7a00] px-4 py-2 text-[10px] font-black uppercase tracking-wide text-white">
                   {speaker.badge}
