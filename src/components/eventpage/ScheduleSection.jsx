@@ -3,50 +3,76 @@ import { scheduleData } from '../../data/eventdata';
 import { FaRegClock, FaMapMarkerAlt, FaFilePdf, FaCalendarPlus } from 'react-icons/fa';
 import agendaPdf from '../../assets/images/Mentaguide event Agenda.pdf?url';
 
-// Event details used for the "Add to Calendar" (.ics) file
+// Event details used for "Add to Calendar"
 const EVENT_TITLE = 'Mentaguide Expand 360\u00B2';
 const EVENT_LOCATION = 'Merlis Hotel, Coimbatore';
 const EVENT_DESCRIPTION = 'Join us for Mentaguide Expand 360\u00B2 \u2014 keynote sessions, workshops and networking. Full agenda: https://mentaguide.com/event';
-// 11th August 2026, 10:30 AM - 3:30 PM IST (matches the schedule above)
-const EVENT_START = '20260811T103000';
-const EVENT_END = '20260811T153000';
 
-const handleDownloadPdf = () => {
-  const link = document.createElement('a');
-  link.href = agendaPdf;
-  link.download = 'Mentaguide Event Agenda.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+// 11th August 2026, 10:30 AM - 3:30 PM IST → converted to UTC for Google Calendar link
+const EVENT_START_UTC = '20260811T050000Z'; // 10:30 IST
+const EVENT_END_UTC = '20260811T100000Z';   // 15:30 IST
+
+// IST values still used for the .ics fallback (Outlook/Apple Calendar don't take direct links)
+const EVENT_START_IST = '20260811T103000';
+const EVENT_END_IST = '20260811T153000';
+
+// --- Direct PDF download (no preview tab) ---
+const handleDownloadPdf = async () => {
+  try {
+    const response = await fetch(agendaPdf);
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Mentaguide Event Agenda.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    // fallback: if fetch fails (e.g. CORS), just open it normally
+    window.open(agendaPdf, '_blank');
+  }
 };
 
+// --- Add to Calendar: opens Google Calendar directly, no file download ---
 const handleAddToCalendar = () => {
-  const icsContent = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Mentaguide//Event//EN',
-    'CALSCALE:GREGORIAN',
-    'BEGIN:VEVENT',
-    `UID:mentaguide-expand360-${Date.now()}@mentaguide.com`,
-    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
-    `DTSTART;TZID=Asia/Kolkata:${EVENT_START}`,
-    `DTEND;TZID=Asia/Kolkata:${EVENT_END}`,
-    `SUMMARY:${EVENT_TITLE}`,
-    `DESCRIPTION:${EVENT_DESCRIPTION}`,
-    `LOCATION:${EVENT_LOCATION}`,
-    'END:VEVENT',
-    'END:VCALENDAR',
-  ].join('\r\n');
+  const isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
 
-  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'Mentaguide-Expand-360.ics';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  if (isAppleDevice) {
+    // On iOS/Mac, opening a data: .ics URL lets the Calendar app preview & add it directly,
+    // instead of dropping a file into Downloads.
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Mentaguide//Event//EN',
+      'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      `UID:mentaguide-expand360-${Date.now()}@mentaguide.com`,
+      `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+      `DTSTART;TZID=Asia/Kolkata:${EVENT_START_IST}`,
+      `DTEND;TZID=Asia/Kolkata:${EVENT_END_IST}`,
+      `SUMMARY:${EVENT_TITLE}`,
+      `DESCRIPTION:${EVENT_DESCRIPTION}`,
+      `LOCATION:${EVENT_LOCATION}`,
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+
+    const dataUrl = `data:text/calendar;charset=utf8,${encodeURIComponent(icsContent)}`;
+    window.location.href = dataUrl;
+  } else {
+    // Everyone else (Android, desktop, Windows): open Google Calendar's
+    // "add event" screen directly, pre-filled — one tap to save, no file involved.
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: EVENT_TITLE,
+      dates: `${EVENT_START_UTC}/${EVENT_END_UTC}`,
+      details: EVENT_DESCRIPTION,
+      location: EVENT_LOCATION,
+    });
+    window.open(`https://calendar.google.com/calendar/render?${params.toString()}`, '_blank');
+  }
 };
 
 const ScheduleSection = () => {
@@ -54,7 +80,6 @@ const ScheduleSection = () => {
 
   const currentDayData = scheduleData.find((d) => d.dayId === activeDay);
 
-  // Group events by time
   const groupedEvents = currentDayData?.events.reduce((acc, event) => {
     if (!acc[event.time]) {
       acc[event.time] = [];

@@ -56,20 +56,20 @@ const speakers = [
 
 const SocialButtons = () => (
   <div className="flex items-center gap-2">
-    <a
+    {/* <a
       href="#linkedin"
       aria-label="LinkedIn profile"
       className="flex h-8 w-8 items-center justify-center rounded-full bg-[#ff7a00] text-xs text-white shadow-[0_8px_18px_rgba(255,122,0,0.3)] transition hover:-translate-y-0.5 hover:bg-[#f06400]"
     >
       <FaLinkedinIn aria-hidden="true" />
-    </a>
-    <a
+    </a> */}
+    {/* <a
       href="#twitter"
       aria-label="Twitter profile"
       className="flex h-8 w-8 items-center justify-center rounded-full bg-[#ff7a00] text-xs text-white shadow-[0_8px_18px_rgba(255,122,0,0.3)] transition hover:-translate-y-0.5 hover:bg-[#f06400]"
     >
       <FaTwitter aria-hidden="true" />
-    </a>
+    </a> */}
   </div>
 );
 
