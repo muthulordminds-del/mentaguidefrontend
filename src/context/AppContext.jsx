@@ -21,6 +21,8 @@ export const AppContextProvider = (props) => {
     const [userData, setUserData] = useState(false)
 
     const getAuthState = async () => {
+        const hasToken = !!localStorage.getItem('token')
+
         try {
             const { data } = await axios.get(backendUrl + '/api/auth/is-auth')
             if (data.success) {
@@ -33,10 +35,19 @@ export const AppContextProvider = (props) => {
             }
 
         } catch (error) {
+            localStorage.removeItem('token')
+            setIsLoggedIn(false)
+            setUserData(false)
+
             if (error.response?.status === 401 || error.response?.status === 400) {
-                localStorage.removeItem('token')
-                setIsLoggedIn(false)
-                setUserData(false)
+                return
+            }
+
+            // Anonymous visitors never had a token, so a failed check here
+            // (network hiccup, cold start, CORS, etc.) is expected noise,
+            // not something worth surfacing to them.
+            if (!hasToken) {
+                console.warn('Auth state check failed for anonymous visitor:', error.message);
                 return
             }
 
