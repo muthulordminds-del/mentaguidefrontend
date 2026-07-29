@@ -15,9 +15,17 @@ import Eventpage from './pages/Eventpage'
 import ServiceDetailsPage from './pages/ServiceDetailsPage'
 import AdvertiserSignupPage from './pages/AdvertiserSignupPage'
 import CompletePayment from './pages/CompletePayment'
+import React, { useEffect } from 'react'
 
 const App = () => {
   const location = useLocation()
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-66FMFZCHGR', {
+        page_path: location.pathname,
+      });
+    }
+  }, [location]);
   const hideFooterRoutes = ['/', '/login', '/reset-password', '/email-verify']
   const shouldShowFooter = !hideFooterRoutes.includes(location.pathname)
   const hideFloating = location.pathname === '/event-registration' || location.pathname.startsWith('/complete-payment')
