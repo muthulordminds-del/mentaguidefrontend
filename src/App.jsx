@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Homepage from './pages/Homepage'
 import Aboutpage from './pages/Aboutpage'
 import Servicepage from './pages/Servicepage'
@@ -15,7 +15,6 @@ import Eventpage from './pages/Eventpage'
 import ServiceDetailsPage from './pages/ServiceDetailsPage'
 import AdvertiserSignupPage from './pages/AdvertiserSignupPage'
 import CompletePayment from './pages/CompletePayment'
-import React, { useEffect } from 'react'
 
 const App = () => {
   const location = useLocation()
