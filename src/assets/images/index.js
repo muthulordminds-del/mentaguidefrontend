@@ -27,11 +27,11 @@ import SA8000logo from "./logos/SA8000logo.jpeg";
 import WRAPlogo from "./logos/WRAPlogo.jpeg";
 
 // posterimg
-import posterforgoogleform from "./advertiserpopupbanner.jpg";
+import posterforgoogleform from "./advertiserpopupbanner.png";
 
 // Event banner (home page hero) & Advertiser popup banner
 import eventbannerhero from "./eventbannerhero.jpg";
-import advertiserpopupbanner from "./advertiserpopupbanner.jpg";
+import advertiserpopupbanner from "./advertiserpopupbanner.png";
 
 // Aboutpage images
 import aboutherosectionbg from "./aboutpage/aboutherosectionbg.jpg";
