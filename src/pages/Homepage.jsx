@@ -119,7 +119,7 @@ const Homepage = () => {
                         </button>
                         
                         <div className="text-center flex flex-col min-h-0">
-                            <h2 className="text-xl sm:text-2xl font-black text-[#222421] mb-1 sm:mb-2">Register Now</h2>
+                            <h2 className="text-xl sm:text-2xl font-black text-[#222421] mb-1 sm:mb-2">Enquiry Now</h2>
                             <p className="text-[#6a6d67] text-sm sm:text-base mb-3 sm:mb-4">Complete your advertiser profile to get started.</p>
                             
                             <div className="w-full flex justify-center mb-3 sm:mb-4 rounded-xl overflow-hidden border border-gray-100">
@@ -130,7 +130,7 @@ const Homepage = () => {
                                 onClick={handlePopupAdvertiserClick}
                                 className="w-full max-w-xs sm:max-w-sm mx-auto py-3 sm:py-3.5 bg-[#a4d64f] text-[#202523] font-black uppercase tracking-widest rounded-xl shadow-[0_10px_25px_rgba(164,214,79,0.3)] transition-all hover:-translate-y-1 hover:bg-[#b5e663] flex items-center justify-center gap-2 shrink-0"
                             >
-                                Register Now
+                                Enquiry Now
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </button>
                         </div>

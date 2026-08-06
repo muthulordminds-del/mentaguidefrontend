@@ -178,7 +178,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/about'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">About</a> <span className="font-light opacity-50">|</span>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/services'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Service</a> <span className="font-light opacity-50">|</span>
               <a href="/" onClick={(e) => { e.preventDefault(); navigate('/contact'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Contact</a> <span className="font-light opacity-50">|</span>
-              <a href="/" onClick={(e) => { e.preventDefault(); navigate('/event'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Event</a> <span className="font-light opacity-50">|</span>
+              {/* <a href="/" onClick={(e) => { e.preventDefault(); navigate('/event'); window.scrollTo(0, 0); }} className="hover:text-[#a4d64f] transition-colors">Event</a> <span className="font-light opacity-50">|</span> */}
               {/* <a href="#" className="hover:text-[#a4d64f] transition-colors">USA</a> */}
             </div>
           </div>
@@ -204,7 +204,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
               {!isLoggedIn && (
                 <button onClick={openLogin} className={`font-gilroy hover:text-[#a4d64f] transition-colors uppercase tracking-widest cursor-pointer ${isHomeHeroSection ? 'text-white' : ''}`}>Login</button>
               )}
-              <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Register Now</button>
+              <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-5 md:py-2.5 lg:px-6 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs lg:text-base cursor-pointer hidden md:block whitespace-nowrap">Enquiry Now</button>
             </div>
             <div className={`${location.pathname === '/event' ? 'hidden sm:flex' : 'flex'} flex-col sm:flex-row justify-end md:justify-center items-end sm:items-center gap-0.5 sm:gap-3 md:gap-2 ${isHomeHeroSection ? 'text-base' : 'lg:gap-3 text-[0.75rem] sm:text-[1rem] md:text-base lg:text-[1.15rem]'} font-bold font-gilroy tracking-wide mt-1 md:mt-0 transition-colors duration-300 self-end md:self-auto ${isHomeHeroSection ? 'text-white translate-x-6 md:translate-x-10 lg:translate-x-85 -translate-y-2 md:-translate-y-3 lg:-translate-y-4' : isDarkText ? 'text-black' : 'text-white'}`}>
               <a href="tel:+917708505529" className="hover:text-[#a4d64f] transition-colors cursor-pointer">+91 7708505529</a>
@@ -277,7 +277,7 @@ const Navbar = ({ activeIndex, hideFloatingNav = false }) => {
             <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-base md:text-[1rem] lg:text-[1.1rem] font-bold">
               {authControl}
               <button onClick={handleAdvertiserClick} className="bg-[#a4d64f] text-[#202523] px-5 py-2 md:px-6 md:py-2.5 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs md:text-sm lg:text-base cursor-pointer">
-                Register Now
+                Enquiry Now
               </button>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-[1rem] md:text-[1.1rem] font-bold font-gilroy tracking-wide mt-4 md:mt-0">

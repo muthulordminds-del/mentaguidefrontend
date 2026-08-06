@@ -40,7 +40,7 @@ const HeroSection = () => {
               onClick={handleAdvertiserClick}
               className="bg-[#a4d64f] text-[#202523] px-5 py-2 rounded-full font-black uppercase tracking-widest hover:bg-[#b5e663] transition-all hover:-translate-y-1 shadow-[0_4px_14px_rgba(164,214,79,0.3)] text-xs cursor-pointer whitespace-nowrap"
             >
-              Register Now
+              Enquiry Now
             </button>
           </div>
         </div>

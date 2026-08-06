@@ -143,7 +143,7 @@ const Herosection = () => {
             onClick={() => navigate('/event-registration')}
             className="rounded-full bg-[#a4d64f] px-5 py-2 text-xs font-black uppercase tracking-widest text-[#202523] shadow-[0_4px_14px_rgba(164,214,79,0.3)] transition hover:-translate-y-1 hover:bg-[#b5e663] sm:px-6 sm:py-2.5"
           >
-            Register Now
+            Enquiry Now
           </button>
         </div>
 
