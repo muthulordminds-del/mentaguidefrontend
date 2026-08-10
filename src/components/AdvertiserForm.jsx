@@ -105,16 +105,20 @@ const AdvertiserForm = ({ onSuccess, showIntroScreen = false }) => {
     try {
       const { data } = await axios.post(backendUrl + '/api/advertiser/submit', submitData);
       if (data.success) {
-        toast.success('Details saved! Now complete your payment.');
+        toast.success('Registration successful!');
         setSubmittedAdvertiser({
           advertiserId: data.advertiserId,
           fullName: formData.fullName,
           email: formData.email,
           whatsapp: formData.whatsapp,
         });
-        setCurrentStep(3); // move to payment step
-        if (formRef.current) {
-          formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Payment step disabled - going straight to home page after submit instead
+        // setCurrentStep(3); // move to payment step
+        // if (formRef.current) {
+        //   formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // }
+        if (onSuccess) {
+          onSuccess();
         }
       } else {
         toast.error(data.message || 'Error submitting form');

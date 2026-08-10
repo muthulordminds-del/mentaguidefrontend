@@ -25,7 +25,7 @@ const AdvertiserSignupPage = () => {
 
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 sm:p-8">
         <AdvertiserForm onSuccess={() => {
-          navigate('/event');
+          navigate('/'); // redirect to home page after submit (payment page skipped)
           window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         }} />
       </div>
